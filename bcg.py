@@ -1,4 +1,5 @@
 import ply.lex as lex
+from tabulate import tabulate
 
 class JavaLex(object):
     keywords = ('this', 'class', 'void', 'super', 'extends', 'implements', 'enum', 'interface',
@@ -82,10 +83,13 @@ class JavaLex(object):
 if __name__ == '__main__':
     sym_table=dict()
     JavaLexer = lex.lex(module = JavaLex())
-    my_inp=open('Simple.java','r').read()
+    my_inp = open('Simple.java','r').read()
     JavaLexer.input(my_inp)
     for token in JavaLexer:
-          if(token.type=='NAME'):
+        print(token)
+        if(token.type == 'NAME'):
             sym_table[token.value]=(token.lineno,token.lexpos)
-    print(sym_table)
+    print("\nSYMBOL TABLE :\n")
+    print(tabulate([[sym, sym_table[sym]] for sym in sym_table], headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
+
        
