@@ -34,6 +34,7 @@ class JavaLex(object):
     t_CHAR_LITERAL = r'\'([^\\\n]|(\\.))*?\''
     t_STRING_LITERAL = r'\"([^\\\n]|(\\.))*?\"'
     t_LINE_COMMENT = '//.*'
+    t_BLOCK_COMMENT =  r'/\*(.|\n)*?\*/'
     t_OR = r'\|\|'
     t_AND = '&&'
     t_EQUAL = '=='
@@ -58,11 +59,7 @@ class JavaLex(object):
     t_MINUSMINUS = r'\-\-'
     t_ELLIPSIS = r'\.\.\.'
     t_ignore = ' \t\f'
-
-    def t_BLOCK_COMMENT(self, t):
-        r'/\*(.|\n)*?\*/'
-        t.lexer.lineno += t.value.count('\n')
-
+    
     def t_NAME(self, t):
         '[A-Za-z_$][A-Za-z0-9_$]*'
         if t.value in JavaLex.keywords:
@@ -83,10 +80,12 @@ class JavaLex(object):
 
 
 if __name__ == '__main__':
+    sym_table=dict()
     JavaLexer = lex.lex(module = JavaLex())
-    expressions = ["if(x == 1)", "Test = 1"]
-    for exp in expressions:
-        print("ANALYSING :  {}".format(exp))
-        JavaLexer.input(exp)
-        for token in JavaLexer:
-            print(token)
+    my_inp=open('Simple.java','r').read()
+    JavaLexer.input(my_inp)
+    for token in JavaLexer:
+          if(token.type=='NAME'):
+            sym_table[token.value]=(token.lineno,token.lexpos)
+    print(sym_table)
+       
