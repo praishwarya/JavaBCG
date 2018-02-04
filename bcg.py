@@ -86,10 +86,12 @@ if __name__ == '__main__':
     my_inp = open('Simple.java','r').read()
     JavaLexer.input(my_inp)
     for token in JavaLexer:
-        print(token)
+        #print(token)
         if(token.type == 'NAME'):
             sym_table[token.value]=(token.lineno,token.lexpos)
-    print("\nSYMBOL TABLE :\n")
-    print(tabulate([[sym, sym_table[sym]] for sym in sym_table], headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
+        if(token.type == '}'):
+            print("\nSYMBOL TABLE :\n")
+            print(tabulate([[sym, sym_table[sym]] for sym in sym_table], headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
+            sym_table=dict() 
 
        
