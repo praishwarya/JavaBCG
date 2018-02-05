@@ -6,11 +6,14 @@ class Simple
 	int i=0;
 	int k=1;
 	int count=10;
-	//System.out.println("Value of k is:"+k);
 	/*below for loop prints 10 numbers.
 	For is an iterative control structure*/
-	for(i=0;i<count;i++)
+	for(i=0;i<count;i++){
+                int k=2;
+		System.out.println("Value of k is:"+k);
 		System.out.println("Value of i is:"+i); //my print statement
+	}
+	System.out.println("Value of k is:"+k);
 	} 
 	System.out.println("Value of k is:"+k); 
 	/* End
@@ -26,13 +29,16 @@ class Hard
 	int j=0;
 	int a=1;
 	int count=10;
-	//System.out.println("Value of k is:"+k);
 	/*below for loop prints 10 numbers.
 	For is an iterative control structure*/
-	for(j=0;j<count;j++)
+	for(j=0;j<count;j++){
+		int a = 2;
+		System.out.println("Value of a is:"+a);
 		System.out.println("Value of j is:"+j); //my print statement
+	}
+	System.out.println("Value of a is:"+a);
 	} 
-	System.out.println("Value of k is:"+j); 
+	System.out.println("Value of a is:"+a); 
 	/* End
 	 of program
 	.*/
