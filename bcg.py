@@ -81,7 +81,8 @@ class JavaLex(object):
 
 
 if __name__ == '__main__':
-    sym_table=dict()
+    sym_table = dict()
+    master_sym_table = list()
     JavaLexer = lex.lex(module = JavaLex())
     my_inp = open('Simple.java','r').read()
     JavaLexer.input(my_inp)
@@ -90,8 +91,9 @@ if __name__ == '__main__':
         if(token.type == 'NAME'):
             sym_table[token.value]=(token.lineno,token.lexpos)
         if(token.type == '}'):
-            print("\nSYMBOL TABLE :\n")
-            print(tabulate([[sym, sym_table[sym]] for sym in sym_table], headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
-            sym_table=dict() 
+            master_sym_table.append(sym_table)
+            sym_table = dict() 
+    for stab in master_sym_table :
+        print()
+        print(tabulate([[sym, stab[sym]] for sym in stab], headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
 
-       
