@@ -79,7 +79,6 @@ class JavaLex(object):
         print("ERROR : Unknown character '{}' ({}) in line {}".format(t.value[0], hex(ord(t.value[0])), t.lexer.lineno))
         t.lexer.skip(1)
 
-
 if __name__ == '__main__':
     sym_table = dict()
     master_sym_table = list()
