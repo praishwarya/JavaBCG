@@ -35,6 +35,7 @@ class JavaLex(object):
     t_CHAR_LITERAL = r'\'([^\\\n]|(\\.))*?\''
     t_STRING_LITERAL = r'\"([^\\\n]|(\\.))*?\"'
     t_LINE_COMMENT = '//.*'
+    t_BLOCK_COMMENT =  r'/\*(.|\n)*?\*/'
     t_OR = r'\|\|'
     t_AND = '&&'
     t_EQUAL = '=='
@@ -73,11 +74,6 @@ class JavaLex(object):
     def t_RNEWLINE(self, t):
         r'(\r\n)+'
         t.lexer.lineno += len(t.value) / 2
-
-    def t_BLOCK_COMMENT(self, t):
-        r'/\*(.|\n)*?\*/'
-        if(r'\n'):
-            t.lexer.lineno += 1
 
     def t_error(self, t):
         print("ERROR : Unknown character '{}' ({}) in line {}".format(t.value[0], hex(ord(t.value[0])), t.lexer.lineno))
