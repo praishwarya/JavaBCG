@@ -87,13 +87,9 @@ if __name__ == '__main__':
     my_inp = open('Simple.java','r').read()
     JavaLexer.input(my_inp)
     for token in JavaLexer:
-        #print(token)
         if(token.type == 'NAME'):
             sym_table[token.value]=(token.lineno,token.lexpos)
         if(token.type == '}'):
-            master_sym_table.append(sym_table)
+            master_sym_table += [[sym, sym_table[sym]] for sym in sym_table]
             sym_table = dict() 
-    for stab in master_sym_table :
-        print()
-        print(tabulate([[sym, stab[sym]] for sym in stab], headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
-
+    print(tabulate(master_sym_table, headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
