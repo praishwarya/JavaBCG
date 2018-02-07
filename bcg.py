@@ -81,14 +81,40 @@ class JavaLex(object):
 
 if __name__ == '__main__':
     sym_table = dict()
-    master_sym_table = list()
+    #master_sym_table = list()
+    master_sym_table = dict()
+    #keys_master = list()
     JavaLexer = lex.lex(module = JavaLex())
     my_inp = open('Simple.java','r').read()
     JavaLexer.input(my_inp)
+    temp = 0
+    c = 0
+    #print(type(JavaLexer))
     for token in JavaLexer:
-        if(token.type == 'NAME'):
-            sym_table[token.value]=(token.lineno,token.lexpos)
+        #print(token)
+        if(token.type == 'CLASS'):
+            #keys_master.append(list(token.type))
+            c = c+1
+            continue
+        if(token.type == 'NAME' and c == 1):
+            #keys_master.append(token.value) 
+            temp = token.value 
+            master_sym_table[token.value]=(token.lineno, token.lexpos)
+            c = 0
+        if(token.type == 'NAME' and c == 0):
+            sym_table[token.value] = (token.lineno, token.lexpos) 
+        '''for key in master_sym_table.keys():
+            #keys_master.append(key)
+            if(token.type == 'NAME' and c == 0 and  == key):
+                master_sym_table[key][token.value]=(token.lineno, token.lexpos)'''
+        '''    #sym_table[token.value]=(token.lineno,token.lexpos)
+            #master_sym_table[token.value]=(token.lineno, token.lexpos)
         if(token.type == '}'):
-            master_sym_table += [[sym, sym_table[sym]] for sym in sym_table]
+            #master_sym_table += [[sym, sym_table[sym]] for sym in sym_table]
+            master_sym_table = dict()'''
+        if(token.type == '{'):
             sym_table = dict() 
+        if(token.type == '}'):
+           #master_sym_table[temp] = sym_table
+           #k = k+1      
     print(tabulate(master_sym_table, headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
