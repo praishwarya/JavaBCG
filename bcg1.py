@@ -84,36 +84,28 @@ if __name__ == '__main__':
     data_t=['void','byte', 'short', 'int', 'long', 'char', 'float', 'double', 'boolean', 'null']
     data_t += [kwd.upper() for kwd in data_t]
     JavaLexer = lex.lex(module = JavaLex())
-    my_inp = open('Simple.java','r').read()
+    my_inp = open('Simple1.java','r').read()
     JavaLexer.input(my_inp)
     sym_table=dict()
+    s=dict()
+    sym_table['outer']=s
     flag=0
     r=random.randint(1,101)
-    top = 0
-    scope = [r]
-    curr_scopes=[r]
+    i = 0
+    l=[]
     for token in JavaLexer:
-        #print(token)
         if(token.type=='{'):
-           flag=1
-           r=random.randint(1,101)
-           while(r in curr_scopes):
-             r=random.randint(1,101)
-           top = top+1
-           scope.append(r)
+           l.append(s)
+           s=dict()
         if(token.type=='}'):
-           flag=0
-           top = top-1
-           scope.pop()
-        if(flag==1):
-           if(token.type=='NAME'):
-              curr_scopes.append(scope)
-              sym_table[(token.value,scope[top])]=(token.lineno, token.lexpos)
-        else:
-           if(token.type=='NAME'):
-              curr_scopes.append(scope)
-              sym_table[(token.value,scope[top])]=(token.lineno, token.lexpos)
-        prev=token
+           i=i+1
+           sym_table["inner_"+str(i)]=s
+           print("\n\n[Table for scope: inner_"+str(i),"]\n")
+           print(tabulate([[sym, s[sym]] for sym in s], headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
+           s=l.pop()
+        if(token.type=='NAME'):
+              s[token.value]=(token.lineno, token.lexpos)
+    sym_table['outer']=s
+    print("\n\n[Table for scope: outer]\n\n")
+    print(tabulate([[sym, s[sym]] for sym in s], headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
     #print(sym_table)
-    print(tabulate([[sym,s,sym_table[(sym,s)]] for (sym,s) in sym_table], headers = ['NAME','SCOPE','VALUE'], tablefmt='orgtbl'))
-    #print(tabulate(list(sym_table), headers = ['Identifier', 'Line.no','Column.no','Scope'], tablefmt='orgtbl'))
