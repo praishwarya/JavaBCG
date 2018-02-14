@@ -1,6 +1,7 @@
 from lex import tokens
 import ply.yacc as yacc
 
+sym_table = dict()
 
 precedence = (
     ('right', 'ASSIGNMENT'),
@@ -16,6 +17,7 @@ precedence = (
 
 def p_Program(p):
     'Program : ClassDeclList'
+    
 
 def p_ClassDeclList(p):
     'ClassDeclList : ClassDecl ClassDeclList'
@@ -234,6 +236,7 @@ def p_ReturnExpr1(p):
 
 def p_IfStmt(p):
     'IfStmt : IF LEFTPARENT Expr RIGHTPARENT Stmt ElseStmt'
+    print(p[2])
 
 def p_ElseStmt(p):
     'ElseStmt : ELSE Stmt'

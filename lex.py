@@ -100,11 +100,50 @@ def t_error(t):
 
 
 my_inp = open('Simple.java','r').read()
+data_types=['byte', 'short', 'int', 'long', 'char', 'float', 'double', 'boolean','void','class']
 lex.lex()
 lex.input(my_inp)
+sym_table = dict()
+s=dict()
+sym_table['outer']=s
+flag=0
+i = 0
+l=[]
 while 1:
     t = lex.token()
     if not t: 
-         break      
-    print(t)
-
+         break  
+    if(t.type=='LEFTBRACE'):
+       l.append(s)
+       s=dict()
+    if(t.type=='RIGHTBRACE'):
+       i=i+1
+       sym_table["inner_"+str(i)]=s
+       print("\n\n[Table for scope: inner_"+str(i),"]\n")
+       print(tabulate([[sym, s[sym]] for sym in s], headers = ['SYMBOL', 'VALUE(lineno,datatype,function/var)'], tablefmt='orgtbl'))
+       s=l.pop()   
+    if(t.value in data_types):
+       flag = 1
+       typ = t.value
+    if(t.type=='SEMICOLON'):
+       flag = 0
+    if(t.type == 'NAME'):
+       next = lex.token()
+       if(next.type == 'LEFTPARENT'):
+          if(flag == 1):
+             flag = 0
+             s[t.value] = (t.lineno,typ,"Function")
+          else:
+             s[t.value] = (t.lineno,"Predefined","Function")
+       else:
+          if(next.type == 'LEFTBRACE' and flag==1):
+             flag = 0
+             s[t.value] = (t.lineno,typ,"Class")
+             l.append(s)
+             s=dict()
+          elif(flag==1):
+             s[t.value] = (t.lineno,typ,"Variable")   
+sym_table['outer']=s
+print("\n\n[Table for scope: outer]\n\n")
+print(tabulate([[sym, s[sym]] for sym in s], headers = ['SYMBOL', 'VALUE'], tablefmt='orgtbl'))
+#print(tabulate([[sym, sym_table[sym]] for sym in sym_table], headers = ['SYMBOL', 'VALUE(lineno,datatype,function/var)'], tablefmt='orgtbl'))

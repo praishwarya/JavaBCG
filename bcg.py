@@ -105,4 +105,4 @@ if __name__ == '__main__':
     sym_table['outer']=s
     print("\n\n[Table for scope: outer]\n\n")
     print(tabulate([[sym, s[sym]] for sym in s], headers = ['NAME', 'VALUE'], tablefmt='orgtbl'))
-    #print(sym_table)
+#print(sym_table)
