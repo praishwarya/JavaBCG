@@ -24,7 +24,7 @@ tokens = [
         'LSHIFT', 'RSHIFT', 'RRSHIFT',
         'PLUSPLUS', 'MINUSMINUS', 'MODULO', 'LEFTPARENT' , 'RIGHTPARENT',
         'ELLIPSIS' , 'LEFTBRACE','RIGHTBRACE', 'PLUS', 'MINUS','MULTIPLY','DIVIDE', 'ASSIGNMENT',
-        'SEMICOLON' , 'COMMA', 'LEFTSQRBRACKET', 'RIGHTSQRBRACKET', 'UMINUS', 'CONCAT','DOT','NOT'] 
+        'SEMICOLON' , 'COMMA', 'LEFTSQRBRACKET', 'RIGHTSQRBRACKET', 'CONCAT','DOT','NOT'] 
 
 tokens += [kwd.upper() for kwd in keywords]
 
@@ -72,7 +72,6 @@ t_SEMICOLON = r';'
 t_COMMA = r','
 t_LEFTSQRBRACKET = r'\['
 t_RIGHTSQRBRACKET = r'\]'
-t_UMINUS = r'\-'
 t_CONCAT = r'\+'
 t_DOT = r'\.'
 t_LEFTPARENT = r'\('

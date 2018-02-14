@@ -10,7 +10,7 @@ precedence = (
     ('left', 'GT', 'LT', 'GTEQ', 'LTEQ'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'MULTIPLY', 'DIVIDE', 'MODULO'),
-    ('right','NEW', 'NOT','UMINUS'),
+    ('right','NEW', 'NOT'),
     ('left', 'DOT')
 )
 
@@ -96,6 +96,10 @@ def p_CommaTypeId(p):
 def p_Type(p):
     '''Type : INT
             | BOOLEAN
+            | FLOAT
+            | LONG
+            | DOUBLE
+            | CHAR
             | STRING_LITERAL
             | NAME
             | Array'''
@@ -117,10 +121,10 @@ def p_StmtList1(p):
     'StmtList : empty'
     
 # varDecl ::= type id ['=' expr] ( ',' id ['=' expr] )* ';' 
-
 def p_VarDeclList(p):
-    'VarDeclList : Type NAME ExpDecl ExpDeclList SEMICOLON VarDeclList'
-    
+    '''VarDeclList : NAME ExpDecl ExpDeclList SEMICOLON
+                   | Type NAME ExpDecl ExpDeclList SEMICOLON VarDeclList'''
+
 def p_VarDeclList1(p):
     'VarDeclList : empty'
 
@@ -157,12 +161,17 @@ def p_Stmt(p):
             | Return
             | IfStmt
             | WhileStmt
+            | ForStmt
             | BREAK SEMICOLON
             | CONTINUE SEMICOLON
-            | Block'''
+            | Block
+            | PrintStmt SEMICOLON'''
     
 
 
+def p_PrintStmt(p):
+    'PrintStmt : NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT'
+    print("hvdf")
 # assign ::= location '=' expr 
 
 def p_Assign(p):
@@ -233,13 +242,13 @@ def p_ElseStmt1(p):
     'ElseStmt : empty'
     
 
-
 # while '(' expr ')' stmt 
 
 def p_WhileStmt(p):
     'WhileStmt : WHILE LEFTPARENT Expr RIGHTPARENT Stmt'
 
-
+def p_ForStmt(p):
+    'ForStmt : FOR LEFTPARENT VarDeclList Actuals SEMICOLON Actuals RIGHTPARENT Stmt'
 # expr ::= location        
 #  | call                  
 #  | this                  
@@ -304,13 +313,10 @@ def p_ExprBinaryExpr(p):
 # unary ::= '-' | '!' 
 
 def p_UnaryExpr(p):
-    '''UnaryExpr : UnaryMinus
-                 | NOT'''
+    '''UnaryExpr : Expr NOT
+                 | Expr MINUSMINUS
+                 | Expr PLUSPLUS'''
     
-
-def p_UnaryMinus(p):
-    'UnaryMinus : MINUS Expr %prec UMINUS'
-
 
 # literal ::= integer-literal | STRING_LITERAL-literal | true | false | null 
 
