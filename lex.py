@@ -103,6 +103,8 @@ my_inp = open('Simple.java','r').read()
 data_types=['byte', 'short', 'int', 'long', 'char', 'float', 'double', 'boolean','void','class']
 lex.lex()
 lex.input(my_inp)
+
+#SYMBOL TABLE 
 sym_table = dict()
 s=dict()
 sym_table['outer']=s
@@ -111,6 +113,7 @@ i = 0
 l=[]
 while 1:
     t = lex.token()
+    #print(t)
     if not t: 
          break  
     if(t.type=='LEFTBRACE'):
@@ -121,7 +124,13 @@ while 1:
        sym_table["inner_"+str(i)]=s
        print("\n\n[Table for scope: inner_"+str(i),"]\n")
        print(tabulate([[sym, s[sym]] for sym in s], headers = ['SYMBOL', 'VALUE(lineno,datatype,function/var)'], tablefmt='orgtbl'))
-       s=l.pop()   
+       s=l.pop()
+    if(t.value in keywords):
+       if(t.value in s):
+          line = str(s[t.value][0])
+          s[t.value] = (line+','+str(t.lineno),"Keyword")
+       else:
+          s[t.value] = ( t.lineno , "Keyword")
     if(t.value in data_types):
        flag = 1
        typ = t.value
@@ -132,9 +141,17 @@ while 1:
        if(next.type == 'LEFTPARENT'):
           if(flag == 1):
              flag = 0
-             s[t.value] = (t.lineno,typ,"Function")
+             if(t.value in s):
+                 line = str(s[t.value][0])
+                 s[t.value] = (line+','+str(t.lineno),typ,"Function")
+             else:
+                 s[t.value] = (t.lineno,typ,"Function")
           else:
-             s[t.value] = (t.lineno,"Predefined","Function")
+             if(t.value in s):
+                 line = str(s[t.value][0])
+                 s[t.value] = (line+','+str(t.lineno),"Predefined","Function")
+             else:
+                 s[t.value] = (t.lineno,"Predefined","Function")
        else:
           if(next.type == 'LEFTBRACE' and flag==1):
              flag = 0
@@ -142,8 +159,12 @@ while 1:
              l.append(s)
              s=dict()
           elif(flag==1):
-             s[t.value] = (t.lineno,typ,"Variable")   
+             if(t.value in s):
+                line = str(s[t.value][0])
+                s[t.value] = (line+','+str(t.lineno),typ,"Variable")
+             else:
+                s[t.value] = (t.lineno,typ,"Variable")   
 sym_table['outer']=s
 print("\n\n[Table for scope: outer]\n\n")
-print(tabulate([[sym, s[sym]] for sym in s], headers = ['SYMBOL', 'VALUE'], tablefmt='orgtbl'))
-#print(tabulate([[sym, sym_table[sym]] for sym in sym_table], headers = ['SYMBOL', 'VALUE(lineno,datatype,function/var)'], tablefmt='orgtbl'))
+print(tabulate([[sym, s[sym]] for sym in s], headers = ['SYMBOL', 'VALUE(lineno,datatype,function/var)'], tablefmt='orgtbl'))
+

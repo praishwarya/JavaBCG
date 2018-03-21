@@ -1,5 +1,8 @@
 from lex import tokens
 import ply.yacc as yacc
+import warnings
+
+warnings.filterwarnings("ignore")
 
 sym_table = dict()
 
@@ -117,7 +120,6 @@ def p_Block(p):
     
 def p_StmtList(p):
     'StmtList : Stmt StmtList'
-    
 
 def p_StmtList1(p):
     'StmtList : empty'
@@ -158,7 +160,8 @@ def p_Decl1(p):
 
 
 def p_Stmt(p):
-    '''Stmt : Assign SEMICOLON
+    '''Stmt : PrintStmt 
+	    | Assign SEMICOLON
             | Call SEMICOLON
             | Return
             | IfStmt
@@ -166,14 +169,12 @@ def p_Stmt(p):
             | ForStmt
             | BREAK SEMICOLON
             | CONTINUE SEMICOLON
-            | Block
-            | PrintStmt SEMICOLON'''
+            | Block'''
     
 
-
 def p_PrintStmt(p):
-    'PrintStmt : NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT'
-    print("hvdf")
+   'PrintStmt : NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON' 
+
 # assign ::= location '=' expr 
 
 def p_Assign(p):
@@ -236,7 +237,6 @@ def p_ReturnExpr1(p):
 
 def p_IfStmt(p):
     'IfStmt : IF LEFTPARENT Expr RIGHTPARENT Stmt ElseStmt'
-    print(p[2])
 
 def p_ElseStmt(p):
     'ElseStmt : ELSE Stmt'
@@ -343,6 +343,7 @@ def p_empty(p):
 def p_error(error):
     print("Syntax Error %s : Unexpected '%s', near line '%s' " % (error, error.value, error.lineno) )
 # Build the parser
+
 parser = yacc.yacc()
 my_inp = open('Simple.java','r').read()
-parser.parse(my_inp)
+parser.parse(my_inp,debug=0)
