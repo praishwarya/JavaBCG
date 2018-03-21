@@ -2,7 +2,12 @@ from lex import tokens
 import ply.yacc as yacc
 import warnings
 
-warnings.filterwarnings("ignore")
+def fxn():
+    warnings.warn("deprecated", DeprecationWarning)
+
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    fxn()
 
 sym_table = dict()
 
@@ -20,7 +25,6 @@ precedence = (
 
 def p_Program(p):
     'Program : ClassDeclList'
-    
 
 def p_ClassDeclList(p):
     'ClassDeclList : ClassDecl ClassDeclList'
