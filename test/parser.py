@@ -1485,7 +1485,7 @@ s.close()
 
 #Parse it!
 yacc.parse(data)
-#ST.printTable()
+ST.printTable()
 #exit(0)
-#TAC.output()
+TAC.output()
 TAC.output3AC()

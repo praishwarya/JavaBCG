@@ -1,0 +1,2992 @@
+Created by PLY version 3.10 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    LEFTSQRBRACKET
+    PROTECTED
+    TRUE
+    DEFAULT
+    ELLIPSIS
+    BLOCK_COMMENT
+    ENUM
+    EXTENDS
+    RRSHIFT
+    THIS
+    CHAR_LITERAL
+    LENGTH
+    TRANSIENT
+    MULT_ASSIGN
+    INTERFACE
+    SHORT
+    RETURN
+    SYNCHRONIZED
+    FINAL
+    LINE_COMMENT
+    TRY
+    DIVIDE_ASSIGN
+    XOR_ASSIGN
+    RSHIFT_ASSIGN
+    RSHIFT
+    MINUS_ASSIGN
+    LSHIFT_ASSIGN
+    WHILE
+    NEW
+    NATIVE
+    CASE
+    STRICTFP
+    SWITCH
+    AND_ASSIGN
+    CATCH
+    INSTANCEOF
+    PACKAGE
+    RRSHIFT_ASSIGN
+    DECIMAL
+    IMPORT
+    BYTE
+    IMPLEMENTS
+    FALSE
+    REMAINDER_ASSIGN
+    OR_ASSIGN
+    VOLATILE
+    DO
+    ABSTRACT
+    ASSERT
+    LSHIFT
+    NULL
+    RIGHTSQRBRACKET
+    PRIVATE
+    THROWS
+    FINALLY
+    PLUS_ASSIGN
+    SUPER
+    THROW
+
+Grammar
+
+Rule 0     S' -> Program
+Rule 1     Program -> ClassDecl
+Rule 2     ClassDecl -> CLASS NAME LEFTBRACE MethDecl RIGHTBRACE
+Rule 3     MethDecl -> PUBLIC STATIC Type NAME LEFTPARENT RIGHTPARENT Block
+Rule 4     Type -> INT
+Rule 5     Type -> VOID
+Rule 6     Type -> BOOLEAN
+Rule 7     Type -> FLOAT
+Rule 8     Type -> LONG
+Rule 9     Type -> DOUBLE
+Rule 10    Type -> CHAR
+Rule 11    Block -> LEFTBRACE StmtList RIGHTBRACE
+Rule 12    StmtList -> StmtList Stmt
+Rule 13    StmtList -> empty
+Rule 14    VarDeclList -> Declaration
+Rule 15    VarDeclList -> VarDeclList Declaration
+Rule 16    Declaration -> Type IdentList SEMICOLON
+Rule 17    IdentList -> Identifier
+Rule 18    IdentList -> IdentList COMMA Identifier
+Rule 19    Identifier -> NAME
+Rule 20    Stmt -> PrintStmt
+Rule 21    Stmt -> Assign SEMICOLON
+Rule 22    Stmt -> IfStmt
+Rule 23    Stmt -> VarDeclList
+Rule 24    Stmt -> ForStmt
+Rule 25    Stmt -> BREAK SEMICOLON
+Rule 26    Stmt -> CONTINUE SEMICOLON
+Rule 27    Stmt -> Block
+Rule 28    PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+Rule 29    Assign -> NAME ASSIGNMENT Expr
+Rule 30    IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt
+Rule 31    IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt
+Rule 32    ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt
+Rule 33    Expr -> NAME
+Rule 34    Expr -> Expr PLUS Expr
+Rule 35    Expr -> Expr MINUS Expr
+Rule 36    Expr -> Expr MULTIPLY Expr
+Rule 37    Expr -> Expr DIVIDE Expr
+Rule 38    Expr -> Expr MODULO Expr
+Rule 39    Expr -> Expr AND Expr
+Rule 40    Expr -> Expr OR Expr
+Rule 41    Expr -> Expr CONCAT Expr
+Rule 42    Expr -> Expr LT Expr
+Rule 43    Expr -> Expr LTEQ Expr
+Rule 44    Expr -> Expr GT Expr
+Rule 45    Expr -> Expr GTEQ Expr
+Rule 46    Expr -> Expr EQUAL Expr
+Rule 47    Expr -> Expr NEQUAL Expr
+Rule 48    Expr -> Expr NOT
+Rule 49    Expr -> Expr MINUSMINUS
+Rule 50    Expr -> Expr PLUSPLUS
+Rule 51    Expr -> LEFTPARENT Expr RIGHTPARENT
+Rule 52    Expr -> NUMBER
+Rule 53    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ABSTRACT             : 
+AND                  : 39
+AND_ASSIGN           : 
+ASSERT               : 
+ASSIGNMENT           : 29
+BLOCK_COMMENT        : 
+BOOLEAN              : 6
+BREAK                : 25
+BYTE                 : 
+CASE                 : 
+CATCH                : 
+CHAR                 : 10
+CHAR_LITERAL         : 
+CLASS                : 2
+COMMA                : 18
+CONCAT               : 41
+CONTINUE             : 26
+DECIMAL              : 
+DEFAULT              : 
+DIVIDE               : 37
+DIVIDE_ASSIGN        : 
+DO                   : 
+DOT                  : 28 28
+DOUBLE               : 9
+ELLIPSIS             : 
+ELSE                 : 31
+ENUM                 : 
+EQUAL                : 46
+EXTENDS              : 
+FALSE                : 
+FINAL                : 
+FINALLY              : 
+FLOAT                : 7
+FOR                  : 32
+GT                   : 44
+GTEQ                 : 45
+IF                   : 30 31
+IMPLEMENTS           : 
+IMPORT               : 
+INSTANCEOF           : 
+INT                  : 4
+INTERFACE            : 
+LEFTBRACE            : 2 11
+LEFTPARENT           : 3 28 30 31 32 51
+LEFTSQRBRACKET       : 
+LENGTH               : 
+LINE_COMMENT         : 
+LONG                 : 8
+LSHIFT               : 
+LSHIFT_ASSIGN        : 
+LT                   : 42
+LTEQ                 : 43
+MINUS                : 35
+MINUSMINUS           : 49
+MINUS_ASSIGN         : 
+MODULO               : 38
+MULTIPLY             : 36
+MULT_ASSIGN          : 
+NAME                 : 2 3 19 28 28 28 29 33
+NATIVE               : 
+NEQUAL               : 47
+NEW                  : 
+NOT                  : 48
+NULL                 : 
+NUMBER               : 52
+OR                   : 40
+OR_ASSIGN            : 
+PACKAGE              : 
+PLUS                 : 34
+PLUSPLUS             : 50
+PLUS_ASSIGN          : 
+PRIVATE              : 
+PROTECTED            : 
+PUBLIC               : 3
+REMAINDER_ASSIGN     : 
+RETURN               : 
+RIGHTBRACE           : 2 11
+RIGHTPARENT          : 3 28 30 31 32 51
+RIGHTSQRBRACKET      : 
+RRSHIFT              : 
+RRSHIFT_ASSIGN       : 
+RSHIFT               : 
+RSHIFT_ASSIGN        : 
+SEMICOLON            : 16 21 25 26 28 32 32
+SHORT                : 
+STATIC               : 3
+STRICTFP             : 
+STRING_LITERAL       : 28
+SUPER                : 
+SWITCH               : 
+SYNCHRONIZED         : 
+THIS                 : 
+THROW                : 
+THROWS               : 
+TRANSIENT            : 
+TRUE                 : 
+TRY                  : 
+VOID                 : 5
+VOLATILE             : 
+WHILE                : 
+XOR_ASSIGN           : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+Assign               : 21 32 32
+Block                : 3 27
+ClassDecl            : 1
+Declaration          : 14 15
+Expr                 : 29 30 31 32 34 34 35 35 36 36 37 37 38 38 39 39 40 40 41 41 42 42 43 43 44 44 45 45 46 46 47 47 48 49 50 51
+ForStmt              : 24
+IdentList            : 16 18
+Identifier           : 17 18
+IfStmt               : 22
+MethDecl             : 2
+PrintStmt            : 20
+Program              : 0
+Stmt                 : 12 30 31 31 32
+StmtList             : 11 12
+Type                 : 3 16
+VarDeclList          : 15 23
+empty                : 13
+
+Parsing method: SLR
+
+state 0
+
+    (0) S' -> . Program
+    (1) Program -> . ClassDecl
+    (2) ClassDecl -> . CLASS NAME LEFTBRACE MethDecl RIGHTBRACE
+
+    CLASS           shift and go to state 3
+
+    Program                        shift and go to state 2
+    ClassDecl                      shift and go to state 1
+
+state 1
+
+    (1) Program -> ClassDecl .
+
+    $end            reduce using rule 1 (Program -> ClassDecl .)
+
+
+state 2
+
+    (0) S' -> Program .
+
+
+
+state 3
+
+    (2) ClassDecl -> CLASS . NAME LEFTBRACE MethDecl RIGHTBRACE
+
+    NAME            shift and go to state 4
+
+
+state 4
+
+    (2) ClassDecl -> CLASS NAME . LEFTBRACE MethDecl RIGHTBRACE
+
+    LEFTBRACE       shift and go to state 5
+
+
+state 5
+
+    (2) ClassDecl -> CLASS NAME LEFTBRACE . MethDecl RIGHTBRACE
+    (3) MethDecl -> . PUBLIC STATIC Type NAME LEFTPARENT RIGHTPARENT Block
+
+    PUBLIC          shift and go to state 6
+
+    MethDecl                       shift and go to state 7
+
+state 6
+
+    (3) MethDecl -> PUBLIC . STATIC Type NAME LEFTPARENT RIGHTPARENT Block
+
+    STATIC          shift and go to state 8
+
+
+state 7
+
+    (2) ClassDecl -> CLASS NAME LEFTBRACE MethDecl . RIGHTBRACE
+
+    RIGHTBRACE      shift and go to state 9
+
+
+state 8
+
+    (3) MethDecl -> PUBLIC STATIC . Type NAME LEFTPARENT RIGHTPARENT Block
+    (4) Type -> . INT
+    (5) Type -> . VOID
+    (6) Type -> . BOOLEAN
+    (7) Type -> . FLOAT
+    (8) Type -> . LONG
+    (9) Type -> . DOUBLE
+    (10) Type -> . CHAR
+
+    INT             shift and go to state 10
+    VOID            shift and go to state 12
+    BOOLEAN         shift and go to state 16
+    FLOAT           shift and go to state 13
+    LONG            shift and go to state 14
+    DOUBLE          shift and go to state 11
+    CHAR            shift and go to state 15
+
+    Type                           shift and go to state 17
+
+state 9
+
+    (2) ClassDecl -> CLASS NAME LEFTBRACE MethDecl RIGHTBRACE .
+
+    $end            reduce using rule 2 (ClassDecl -> CLASS NAME LEFTBRACE MethDecl RIGHTBRACE .)
+
+
+state 10
+
+    (4) Type -> INT .
+
+    NAME            reduce using rule 4 (Type -> INT .)
+
+
+state 11
+
+    (9) Type -> DOUBLE .
+
+    NAME            reduce using rule 9 (Type -> DOUBLE .)
+
+
+state 12
+
+    (5) Type -> VOID .
+
+    NAME            reduce using rule 5 (Type -> VOID .)
+
+
+state 13
+
+    (7) Type -> FLOAT .
+
+    NAME            reduce using rule 7 (Type -> FLOAT .)
+
+
+state 14
+
+    (8) Type -> LONG .
+
+    NAME            reduce using rule 8 (Type -> LONG .)
+
+
+state 15
+
+    (10) Type -> CHAR .
+
+    NAME            reduce using rule 10 (Type -> CHAR .)
+
+
+state 16
+
+    (6) Type -> BOOLEAN .
+
+    NAME            reduce using rule 6 (Type -> BOOLEAN .)
+
+
+state 17
+
+    (3) MethDecl -> PUBLIC STATIC Type . NAME LEFTPARENT RIGHTPARENT Block
+
+    NAME            shift and go to state 18
+
+
+state 18
+
+    (3) MethDecl -> PUBLIC STATIC Type NAME . LEFTPARENT RIGHTPARENT Block
+
+    LEFTPARENT      shift and go to state 19
+
+
+state 19
+
+    (3) MethDecl -> PUBLIC STATIC Type NAME LEFTPARENT . RIGHTPARENT Block
+
+    RIGHTPARENT     shift and go to state 20
+
+
+state 20
+
+    (3) MethDecl -> PUBLIC STATIC Type NAME LEFTPARENT RIGHTPARENT . Block
+    (11) Block -> . LEFTBRACE StmtList RIGHTBRACE
+
+    LEFTBRACE       shift and go to state 21
+
+    Block                          shift and go to state 22
+
+state 21
+
+    (11) Block -> LEFTBRACE . StmtList RIGHTBRACE
+    (12) StmtList -> . StmtList Stmt
+    (13) StmtList -> . empty
+    (53) empty -> .
+
+    RIGHTBRACE      reduce using rule 53 (empty -> .)
+    BREAK           reduce using rule 53 (empty -> .)
+    CONTINUE        reduce using rule 53 (empty -> .)
+    NAME            reduce using rule 53 (empty -> .)
+    IF              reduce using rule 53 (empty -> .)
+    FOR             reduce using rule 53 (empty -> .)
+    LEFTBRACE       reduce using rule 53 (empty -> .)
+    INT             reduce using rule 53 (empty -> .)
+    VOID            reduce using rule 53 (empty -> .)
+    BOOLEAN         reduce using rule 53 (empty -> .)
+    FLOAT           reduce using rule 53 (empty -> .)
+    LONG            reduce using rule 53 (empty -> .)
+    DOUBLE          reduce using rule 53 (empty -> .)
+    CHAR            reduce using rule 53 (empty -> .)
+
+    empty                          shift and go to state 23
+    StmtList                       shift and go to state 24
+
+state 22
+
+    (3) MethDecl -> PUBLIC STATIC Type NAME LEFTPARENT RIGHTPARENT Block .
+
+    RIGHTBRACE      reduce using rule 3 (MethDecl -> PUBLIC STATIC Type NAME LEFTPARENT RIGHTPARENT Block .)
+
+
+state 23
+
+    (13) StmtList -> empty .
+
+    RIGHTBRACE      reduce using rule 13 (StmtList -> empty .)
+    BREAK           reduce using rule 13 (StmtList -> empty .)
+    CONTINUE        reduce using rule 13 (StmtList -> empty .)
+    NAME            reduce using rule 13 (StmtList -> empty .)
+    IF              reduce using rule 13 (StmtList -> empty .)
+    FOR             reduce using rule 13 (StmtList -> empty .)
+    LEFTBRACE       reduce using rule 13 (StmtList -> empty .)
+    INT             reduce using rule 13 (StmtList -> empty .)
+    VOID            reduce using rule 13 (StmtList -> empty .)
+    BOOLEAN         reduce using rule 13 (StmtList -> empty .)
+    FLOAT           reduce using rule 13 (StmtList -> empty .)
+    LONG            reduce using rule 13 (StmtList -> empty .)
+    DOUBLE          reduce using rule 13 (StmtList -> empty .)
+    CHAR            reduce using rule 13 (StmtList -> empty .)
+
+
+state 24
+
+    (11) Block -> LEFTBRACE StmtList . RIGHTBRACE
+    (12) StmtList -> StmtList . Stmt
+    (20) Stmt -> . PrintStmt
+    (21) Stmt -> . Assign SEMICOLON
+    (22) Stmt -> . IfStmt
+    (23) Stmt -> . VarDeclList
+    (24) Stmt -> . ForStmt
+    (25) Stmt -> . BREAK SEMICOLON
+    (26) Stmt -> . CONTINUE SEMICOLON
+    (27) Stmt -> . Block
+    (28) PrintStmt -> . NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+    (29) Assign -> . NAME ASSIGNMENT Expr
+    (30) IfStmt -> . IF LEFTPARENT Expr RIGHTPARENT Stmt
+    (31) IfStmt -> . IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt
+    (14) VarDeclList -> . Declaration
+    (15) VarDeclList -> . VarDeclList Declaration
+    (32) ForStmt -> . FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt
+    (11) Block -> . LEFTBRACE StmtList RIGHTBRACE
+    (16) Declaration -> . Type IdentList SEMICOLON
+    (4) Type -> . INT
+    (5) Type -> . VOID
+    (6) Type -> . BOOLEAN
+    (7) Type -> . FLOAT
+    (8) Type -> . LONG
+    (9) Type -> . DOUBLE
+    (10) Type -> . CHAR
+
+    RIGHTBRACE      shift and go to state 33
+    BREAK           shift and go to state 36
+    CONTINUE        shift and go to state 38
+    NAME            shift and go to state 25
+    IF              shift and go to state 31
+    FOR             shift and go to state 32
+    LEFTBRACE       shift and go to state 21
+    INT             shift and go to state 10
+    VOID            shift and go to state 12
+    BOOLEAN         shift and go to state 16
+    FLOAT           shift and go to state 13
+    LONG            shift and go to state 14
+    DOUBLE          shift and go to state 11
+    CHAR            shift and go to state 15
+
+    Stmt                           shift and go to state 29
+    Assign                         shift and go to state 34
+    PrintStmt                      shift and go to state 37
+    VarDeclList                    shift and go to state 39
+    Declaration                    shift and go to state 30
+    ForStmt                        shift and go to state 26
+    Type                           shift and go to state 27
+    IfStmt                         shift and go to state 28
+    Block                          shift and go to state 35
+
+state 25
+
+    (28) PrintStmt -> NAME . DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+    (29) Assign -> NAME . ASSIGNMENT Expr
+
+    DOT             shift and go to state 41
+    ASSIGNMENT      shift and go to state 40
+
+
+state 26
+
+    (24) Stmt -> ForStmt .
+
+    RIGHTBRACE      reduce using rule 24 (Stmt -> ForStmt .)
+    BREAK           reduce using rule 24 (Stmt -> ForStmt .)
+    CONTINUE        reduce using rule 24 (Stmt -> ForStmt .)
+    NAME            reduce using rule 24 (Stmt -> ForStmt .)
+    IF              reduce using rule 24 (Stmt -> ForStmt .)
+    FOR             reduce using rule 24 (Stmt -> ForStmt .)
+    LEFTBRACE       reduce using rule 24 (Stmt -> ForStmt .)
+    INT             reduce using rule 24 (Stmt -> ForStmt .)
+    VOID            reduce using rule 24 (Stmt -> ForStmt .)
+    BOOLEAN         reduce using rule 24 (Stmt -> ForStmt .)
+    FLOAT           reduce using rule 24 (Stmt -> ForStmt .)
+    LONG            reduce using rule 24 (Stmt -> ForStmt .)
+    DOUBLE          reduce using rule 24 (Stmt -> ForStmt .)
+    CHAR            reduce using rule 24 (Stmt -> ForStmt .)
+    ELSE            reduce using rule 24 (Stmt -> ForStmt .)
+
+
+state 27
+
+    (16) Declaration -> Type . IdentList SEMICOLON
+    (17) IdentList -> . Identifier
+    (18) IdentList -> . IdentList COMMA Identifier
+    (19) Identifier -> . NAME
+
+    NAME            shift and go to state 43
+
+    IdentList                      shift and go to state 42
+    Identifier                     shift and go to state 44
+
+state 28
+
+    (22) Stmt -> IfStmt .
+
+    RIGHTBRACE      reduce using rule 22 (Stmt -> IfStmt .)
+    BREAK           reduce using rule 22 (Stmt -> IfStmt .)
+    CONTINUE        reduce using rule 22 (Stmt -> IfStmt .)
+    NAME            reduce using rule 22 (Stmt -> IfStmt .)
+    IF              reduce using rule 22 (Stmt -> IfStmt .)
+    FOR             reduce using rule 22 (Stmt -> IfStmt .)
+    LEFTBRACE       reduce using rule 22 (Stmt -> IfStmt .)
+    INT             reduce using rule 22 (Stmt -> IfStmt .)
+    VOID            reduce using rule 22 (Stmt -> IfStmt .)
+    BOOLEAN         reduce using rule 22 (Stmt -> IfStmt .)
+    FLOAT           reduce using rule 22 (Stmt -> IfStmt .)
+    LONG            reduce using rule 22 (Stmt -> IfStmt .)
+    DOUBLE          reduce using rule 22 (Stmt -> IfStmt .)
+    CHAR            reduce using rule 22 (Stmt -> IfStmt .)
+    ELSE            reduce using rule 22 (Stmt -> IfStmt .)
+
+
+state 29
+
+    (12) StmtList -> StmtList Stmt .
+
+    RIGHTBRACE      reduce using rule 12 (StmtList -> StmtList Stmt .)
+    BREAK           reduce using rule 12 (StmtList -> StmtList Stmt .)
+    CONTINUE        reduce using rule 12 (StmtList -> StmtList Stmt .)
+    NAME            reduce using rule 12 (StmtList -> StmtList Stmt .)
+    IF              reduce using rule 12 (StmtList -> StmtList Stmt .)
+    FOR             reduce using rule 12 (StmtList -> StmtList Stmt .)
+    LEFTBRACE       reduce using rule 12 (StmtList -> StmtList Stmt .)
+    INT             reduce using rule 12 (StmtList -> StmtList Stmt .)
+    VOID            reduce using rule 12 (StmtList -> StmtList Stmt .)
+    BOOLEAN         reduce using rule 12 (StmtList -> StmtList Stmt .)
+    FLOAT           reduce using rule 12 (StmtList -> StmtList Stmt .)
+    LONG            reduce using rule 12 (StmtList -> StmtList Stmt .)
+    DOUBLE          reduce using rule 12 (StmtList -> StmtList Stmt .)
+    CHAR            reduce using rule 12 (StmtList -> StmtList Stmt .)
+
+
+state 30
+
+    (14) VarDeclList -> Declaration .
+
+    INT             reduce using rule 14 (VarDeclList -> Declaration .)
+    VOID            reduce using rule 14 (VarDeclList -> Declaration .)
+    BOOLEAN         reduce using rule 14 (VarDeclList -> Declaration .)
+    FLOAT           reduce using rule 14 (VarDeclList -> Declaration .)
+    LONG            reduce using rule 14 (VarDeclList -> Declaration .)
+    DOUBLE          reduce using rule 14 (VarDeclList -> Declaration .)
+    CHAR            reduce using rule 14 (VarDeclList -> Declaration .)
+    RIGHTBRACE      reduce using rule 14 (VarDeclList -> Declaration .)
+    BREAK           reduce using rule 14 (VarDeclList -> Declaration .)
+    CONTINUE        reduce using rule 14 (VarDeclList -> Declaration .)
+    NAME            reduce using rule 14 (VarDeclList -> Declaration .)
+    IF              reduce using rule 14 (VarDeclList -> Declaration .)
+    FOR             reduce using rule 14 (VarDeclList -> Declaration .)
+    LEFTBRACE       reduce using rule 14 (VarDeclList -> Declaration .)
+    ELSE            reduce using rule 14 (VarDeclList -> Declaration .)
+
+
+state 31
+
+    (30) IfStmt -> IF . LEFTPARENT Expr RIGHTPARENT Stmt
+    (31) IfStmt -> IF . LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt
+
+    LEFTPARENT      shift and go to state 45
+
+
+state 32
+
+    (32) ForStmt -> FOR . LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt
+
+    LEFTPARENT      shift and go to state 46
+
+
+state 33
+
+    (11) Block -> LEFTBRACE StmtList RIGHTBRACE .
+
+    RIGHTBRACE      reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    BREAK           reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    CONTINUE        reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    NAME            reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    IF              reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    FOR             reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    LEFTBRACE       reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    INT             reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    VOID            reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    BOOLEAN         reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    FLOAT           reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    LONG            reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    DOUBLE          reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    CHAR            reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+    ELSE            reduce using rule 11 (Block -> LEFTBRACE StmtList RIGHTBRACE .)
+
+
+state 34
+
+    (21) Stmt -> Assign . SEMICOLON
+
+    SEMICOLON       shift and go to state 47
+
+
+state 35
+
+    (27) Stmt -> Block .
+
+    RIGHTBRACE      reduce using rule 27 (Stmt -> Block .)
+    BREAK           reduce using rule 27 (Stmt -> Block .)
+    CONTINUE        reduce using rule 27 (Stmt -> Block .)
+    NAME            reduce using rule 27 (Stmt -> Block .)
+    IF              reduce using rule 27 (Stmt -> Block .)
+    FOR             reduce using rule 27 (Stmt -> Block .)
+    LEFTBRACE       reduce using rule 27 (Stmt -> Block .)
+    INT             reduce using rule 27 (Stmt -> Block .)
+    VOID            reduce using rule 27 (Stmt -> Block .)
+    BOOLEAN         reduce using rule 27 (Stmt -> Block .)
+    FLOAT           reduce using rule 27 (Stmt -> Block .)
+    LONG            reduce using rule 27 (Stmt -> Block .)
+    DOUBLE          reduce using rule 27 (Stmt -> Block .)
+    CHAR            reduce using rule 27 (Stmt -> Block .)
+    ELSE            reduce using rule 27 (Stmt -> Block .)
+
+
+state 36
+
+    (25) Stmt -> BREAK . SEMICOLON
+
+    SEMICOLON       shift and go to state 48
+
+
+state 37
+
+    (20) Stmt -> PrintStmt .
+
+    RIGHTBRACE      reduce using rule 20 (Stmt -> PrintStmt .)
+    BREAK           reduce using rule 20 (Stmt -> PrintStmt .)
+    CONTINUE        reduce using rule 20 (Stmt -> PrintStmt .)
+    NAME            reduce using rule 20 (Stmt -> PrintStmt .)
+    IF              reduce using rule 20 (Stmt -> PrintStmt .)
+    FOR             reduce using rule 20 (Stmt -> PrintStmt .)
+    LEFTBRACE       reduce using rule 20 (Stmt -> PrintStmt .)
+    INT             reduce using rule 20 (Stmt -> PrintStmt .)
+    VOID            reduce using rule 20 (Stmt -> PrintStmt .)
+    BOOLEAN         reduce using rule 20 (Stmt -> PrintStmt .)
+    FLOAT           reduce using rule 20 (Stmt -> PrintStmt .)
+    LONG            reduce using rule 20 (Stmt -> PrintStmt .)
+    DOUBLE          reduce using rule 20 (Stmt -> PrintStmt .)
+    CHAR            reduce using rule 20 (Stmt -> PrintStmt .)
+    ELSE            reduce using rule 20 (Stmt -> PrintStmt .)
+
+
+state 38
+
+    (26) Stmt -> CONTINUE . SEMICOLON
+
+    SEMICOLON       shift and go to state 49
+
+
+state 39
+
+    (23) Stmt -> VarDeclList .
+    (15) VarDeclList -> VarDeclList . Declaration
+    (16) Declaration -> . Type IdentList SEMICOLON
+    (4) Type -> . INT
+    (5) Type -> . VOID
+    (6) Type -> . BOOLEAN
+    (7) Type -> . FLOAT
+    (8) Type -> . LONG
+    (9) Type -> . DOUBLE
+    (10) Type -> . CHAR
+
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for VOID resolved as shift
+  ! shift/reduce conflict for BOOLEAN resolved as shift
+  ! shift/reduce conflict for FLOAT resolved as shift
+  ! shift/reduce conflict for LONG resolved as shift
+  ! shift/reduce conflict for DOUBLE resolved as shift
+  ! shift/reduce conflict for CHAR resolved as shift
+    RIGHTBRACE      reduce using rule 23 (Stmt -> VarDeclList .)
+    BREAK           reduce using rule 23 (Stmt -> VarDeclList .)
+    CONTINUE        reduce using rule 23 (Stmt -> VarDeclList .)
+    NAME            reduce using rule 23 (Stmt -> VarDeclList .)
+    IF              reduce using rule 23 (Stmt -> VarDeclList .)
+    FOR             reduce using rule 23 (Stmt -> VarDeclList .)
+    LEFTBRACE       reduce using rule 23 (Stmt -> VarDeclList .)
+    ELSE            reduce using rule 23 (Stmt -> VarDeclList .)
+    INT             shift and go to state 10
+    VOID            shift and go to state 12
+    BOOLEAN         shift and go to state 16
+    FLOAT           shift and go to state 13
+    LONG            shift and go to state 14
+    DOUBLE          shift and go to state 11
+    CHAR            shift and go to state 15
+
+  ! INT             [ reduce using rule 23 (Stmt -> VarDeclList .) ]
+  ! VOID            [ reduce using rule 23 (Stmt -> VarDeclList .) ]
+  ! BOOLEAN         [ reduce using rule 23 (Stmt -> VarDeclList .) ]
+  ! FLOAT           [ reduce using rule 23 (Stmt -> VarDeclList .) ]
+  ! LONG            [ reduce using rule 23 (Stmt -> VarDeclList .) ]
+  ! DOUBLE          [ reduce using rule 23 (Stmt -> VarDeclList .) ]
+  ! CHAR            [ reduce using rule 23 (Stmt -> VarDeclList .) ]
+
+    Type                           shift and go to state 27
+    Declaration                    shift and go to state 50
+
+state 40
+
+    (29) Assign -> NAME ASSIGNMENT . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 51
+
+state 41
+
+    (28) PrintStmt -> NAME DOT . NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+
+    NAME            shift and go to state 55
+
+
+state 42
+
+    (16) Declaration -> Type IdentList . SEMICOLON
+    (18) IdentList -> IdentList . COMMA Identifier
+
+    SEMICOLON       shift and go to state 57
+    COMMA           shift and go to state 56
+
+
+state 43
+
+    (19) Identifier -> NAME .
+
+    SEMICOLON       reduce using rule 19 (Identifier -> NAME .)
+    COMMA           reduce using rule 19 (Identifier -> NAME .)
+
+
+state 44
+
+    (17) IdentList -> Identifier .
+
+    SEMICOLON       reduce using rule 17 (IdentList -> Identifier .)
+    COMMA           reduce using rule 17 (IdentList -> Identifier .)
+
+
+state 45
+
+    (30) IfStmt -> IF LEFTPARENT . Expr RIGHTPARENT Stmt
+    (31) IfStmt -> IF LEFTPARENT . Expr RIGHTPARENT Stmt ELSE Stmt
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 58
+
+state 46
+
+    (32) ForStmt -> FOR LEFTPARENT . Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt
+    (29) Assign -> . NAME ASSIGNMENT Expr
+
+    NAME            shift and go to state 60
+
+    Assign                         shift and go to state 59
+
+state 47
+
+    (21) Stmt -> Assign SEMICOLON .
+
+    RIGHTBRACE      reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    BREAK           reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    CONTINUE        reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    NAME            reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    IF              reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    FOR             reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    LEFTBRACE       reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    INT             reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    VOID            reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    BOOLEAN         reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    FLOAT           reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    LONG            reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    DOUBLE          reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    CHAR            reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+    ELSE            reduce using rule 21 (Stmt -> Assign SEMICOLON .)
+
+
+state 48
+
+    (25) Stmt -> BREAK SEMICOLON .
+
+    RIGHTBRACE      reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    BREAK           reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    CONTINUE        reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    NAME            reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    IF              reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    FOR             reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    LEFTBRACE       reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    INT             reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    VOID            reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    BOOLEAN         reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    FLOAT           reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    LONG            reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    DOUBLE          reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    CHAR            reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+    ELSE            reduce using rule 25 (Stmt -> BREAK SEMICOLON .)
+
+
+state 49
+
+    (26) Stmt -> CONTINUE SEMICOLON .
+
+    RIGHTBRACE      reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    BREAK           reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    CONTINUE        reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    NAME            reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    IF              reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    FOR             reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    LEFTBRACE       reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    INT             reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    VOID            reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    BOOLEAN         reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    FLOAT           reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    LONG            reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    DOUBLE          reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    CHAR            reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+    ELSE            reduce using rule 26 (Stmt -> CONTINUE SEMICOLON .)
+
+
+state 50
+
+    (15) VarDeclList -> VarDeclList Declaration .
+
+    INT             reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    VOID            reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    BOOLEAN         reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    FLOAT           reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    LONG            reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    DOUBLE          reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    CHAR            reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    RIGHTBRACE      reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    BREAK           reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    CONTINUE        reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    NAME            reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    IF              reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    FOR             reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    LEFTBRACE       reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+    ELSE            reduce using rule 15 (VarDeclList -> VarDeclList Declaration .)
+
+
+state 51
+
+    (29) Assign -> NAME ASSIGNMENT Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 29 (Assign -> NAME ASSIGNMENT Expr .)
+    RIGHTPARENT     reduce using rule 29 (Assign -> NAME ASSIGNMENT Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    AND             shift and go to state 61
+    OR              shift and go to state 69
+    CONCAT          shift and go to state 76
+    LT              shift and go to state 71
+    LTEQ            shift and go to state 66
+    GT              shift and go to state 62
+    GTEQ            shift and go to state 64
+    EQUAL           shift and go to state 68
+    NEQUAL          shift and go to state 67
+    NOT             shift and go to state 70
+    MINUSMINUS      shift and go to state 74
+    PLUSPLUS        shift and go to state 65
+
+
+state 52
+
+    (52) Expr -> NUMBER .
+
+    SEMICOLON       reduce using rule 52 (Expr -> NUMBER .)
+    RIGHTPARENT     reduce using rule 52 (Expr -> NUMBER .)
+    PLUS            reduce using rule 52 (Expr -> NUMBER .)
+    MINUS           reduce using rule 52 (Expr -> NUMBER .)
+    MULTIPLY        reduce using rule 52 (Expr -> NUMBER .)
+    DIVIDE          reduce using rule 52 (Expr -> NUMBER .)
+    MODULO          reduce using rule 52 (Expr -> NUMBER .)
+    AND             reduce using rule 52 (Expr -> NUMBER .)
+    OR              reduce using rule 52 (Expr -> NUMBER .)
+    CONCAT          reduce using rule 52 (Expr -> NUMBER .)
+    LT              reduce using rule 52 (Expr -> NUMBER .)
+    LTEQ            reduce using rule 52 (Expr -> NUMBER .)
+    GT              reduce using rule 52 (Expr -> NUMBER .)
+    GTEQ            reduce using rule 52 (Expr -> NUMBER .)
+    EQUAL           reduce using rule 52 (Expr -> NUMBER .)
+    NEQUAL          reduce using rule 52 (Expr -> NUMBER .)
+    NOT             reduce using rule 52 (Expr -> NUMBER .)
+    MINUSMINUS      reduce using rule 52 (Expr -> NUMBER .)
+    PLUSPLUS        reduce using rule 52 (Expr -> NUMBER .)
+
+
+state 53
+
+    (51) Expr -> LEFTPARENT . Expr RIGHTPARENT
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 78
+
+state 54
+
+    (33) Expr -> NAME .
+
+    SEMICOLON       reduce using rule 33 (Expr -> NAME .)
+    RIGHTPARENT     reduce using rule 33 (Expr -> NAME .)
+    PLUS            reduce using rule 33 (Expr -> NAME .)
+    MINUS           reduce using rule 33 (Expr -> NAME .)
+    MULTIPLY        reduce using rule 33 (Expr -> NAME .)
+    DIVIDE          reduce using rule 33 (Expr -> NAME .)
+    MODULO          reduce using rule 33 (Expr -> NAME .)
+    AND             reduce using rule 33 (Expr -> NAME .)
+    OR              reduce using rule 33 (Expr -> NAME .)
+    CONCAT          reduce using rule 33 (Expr -> NAME .)
+    LT              reduce using rule 33 (Expr -> NAME .)
+    LTEQ            reduce using rule 33 (Expr -> NAME .)
+    GT              reduce using rule 33 (Expr -> NAME .)
+    GTEQ            reduce using rule 33 (Expr -> NAME .)
+    EQUAL           reduce using rule 33 (Expr -> NAME .)
+    NEQUAL          reduce using rule 33 (Expr -> NAME .)
+    NOT             reduce using rule 33 (Expr -> NAME .)
+    MINUSMINUS      reduce using rule 33 (Expr -> NAME .)
+    PLUSPLUS        reduce using rule 33 (Expr -> NAME .)
+
+
+state 55
+
+    (28) PrintStmt -> NAME DOT NAME . DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+
+    DOT             shift and go to state 79
+
+
+state 56
+
+    (18) IdentList -> IdentList COMMA . Identifier
+    (19) Identifier -> . NAME
+
+    NAME            shift and go to state 43
+
+    Identifier                     shift and go to state 80
+
+state 57
+
+    (16) Declaration -> Type IdentList SEMICOLON .
+
+    INT             reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    VOID            reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    BOOLEAN         reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    FLOAT           reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    LONG            reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    DOUBLE          reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    CHAR            reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    RIGHTBRACE      reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    BREAK           reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    CONTINUE        reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    NAME            reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    IF              reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    FOR             reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    LEFTBRACE       reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+    ELSE            reduce using rule 16 (Declaration -> Type IdentList SEMICOLON .)
+
+
+state 58
+
+    (30) IfStmt -> IF LEFTPARENT Expr . RIGHTPARENT Stmt
+    (31) IfStmt -> IF LEFTPARENT Expr . RIGHTPARENT Stmt ELSE Stmt
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    RIGHTPARENT     shift and go to state 81
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    AND             shift and go to state 61
+    OR              shift and go to state 69
+    CONCAT          shift and go to state 76
+    LT              shift and go to state 71
+    LTEQ            shift and go to state 66
+    GT              shift and go to state 62
+    GTEQ            shift and go to state 64
+    EQUAL           shift and go to state 68
+    NEQUAL          shift and go to state 67
+    NOT             shift and go to state 70
+    MINUSMINUS      shift and go to state 74
+    PLUSPLUS        shift and go to state 65
+
+
+state 59
+
+    (32) ForStmt -> FOR LEFTPARENT Assign . SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt
+
+    SEMICOLON       shift and go to state 82
+
+
+state 60
+
+    (29) Assign -> NAME . ASSIGNMENT Expr
+
+    ASSIGNMENT      shift and go to state 40
+
+
+state 61
+
+    (39) Expr -> Expr AND . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 83
+
+state 62
+
+    (44) Expr -> Expr GT . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 84
+
+state 63
+
+    (38) Expr -> Expr MODULO . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 85
+
+state 64
+
+    (45) Expr -> Expr GTEQ . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 86
+
+state 65
+
+    (50) Expr -> Expr PLUSPLUS .
+
+    SEMICOLON       reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    RIGHTPARENT     reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    PLUS            reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    MINUS           reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    MULTIPLY        reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    DIVIDE          reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    MODULO          reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    AND             reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    OR              reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    CONCAT          reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    LT              reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    LTEQ            reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    GT              reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    GTEQ            reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    EQUAL           reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    NEQUAL          reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    NOT             reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    MINUSMINUS      reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+    PLUSPLUS        reduce using rule 50 (Expr -> Expr PLUSPLUS .)
+
+
+state 66
+
+    (43) Expr -> Expr LTEQ . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 87
+
+state 67
+
+    (47) Expr -> Expr NEQUAL . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 88
+
+state 68
+
+    (46) Expr -> Expr EQUAL . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 89
+
+state 69
+
+    (40) Expr -> Expr OR . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 90
+
+state 70
+
+    (48) Expr -> Expr NOT .
+
+    SEMICOLON       reduce using rule 48 (Expr -> Expr NOT .)
+    RIGHTPARENT     reduce using rule 48 (Expr -> Expr NOT .)
+    PLUS            reduce using rule 48 (Expr -> Expr NOT .)
+    MINUS           reduce using rule 48 (Expr -> Expr NOT .)
+    MULTIPLY        reduce using rule 48 (Expr -> Expr NOT .)
+    DIVIDE          reduce using rule 48 (Expr -> Expr NOT .)
+    MODULO          reduce using rule 48 (Expr -> Expr NOT .)
+    AND             reduce using rule 48 (Expr -> Expr NOT .)
+    OR              reduce using rule 48 (Expr -> Expr NOT .)
+    CONCAT          reduce using rule 48 (Expr -> Expr NOT .)
+    LT              reduce using rule 48 (Expr -> Expr NOT .)
+    LTEQ            reduce using rule 48 (Expr -> Expr NOT .)
+    GT              reduce using rule 48 (Expr -> Expr NOT .)
+    GTEQ            reduce using rule 48 (Expr -> Expr NOT .)
+    EQUAL           reduce using rule 48 (Expr -> Expr NOT .)
+    NEQUAL          reduce using rule 48 (Expr -> Expr NOT .)
+    NOT             reduce using rule 48 (Expr -> Expr NOT .)
+    MINUSMINUS      reduce using rule 48 (Expr -> Expr NOT .)
+    PLUSPLUS        reduce using rule 48 (Expr -> Expr NOT .)
+
+
+state 71
+
+    (42) Expr -> Expr LT . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 91
+
+state 72
+
+    (34) Expr -> Expr PLUS . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 92
+
+state 73
+
+    (36) Expr -> Expr MULTIPLY . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 93
+
+state 74
+
+    (49) Expr -> Expr MINUSMINUS .
+
+    SEMICOLON       reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    RIGHTPARENT     reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    PLUS            reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    MINUS           reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    MULTIPLY        reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    DIVIDE          reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    MODULO          reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    AND             reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    OR              reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    CONCAT          reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    LT              reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    LTEQ            reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    GT              reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    GTEQ            reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    EQUAL           reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    NEQUAL          reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    NOT             reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    MINUSMINUS      reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+    PLUSPLUS        reduce using rule 49 (Expr -> Expr MINUSMINUS .)
+
+
+state 75
+
+    (35) Expr -> Expr MINUS . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 94
+
+state 76
+
+    (41) Expr -> Expr CONCAT . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 95
+
+state 77
+
+    (37) Expr -> Expr DIVIDE . Expr
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 96
+
+state 78
+
+    (51) Expr -> LEFTPARENT Expr . RIGHTPARENT
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    RIGHTPARENT     shift and go to state 97
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    AND             shift and go to state 61
+    OR              shift and go to state 69
+    CONCAT          shift and go to state 76
+    LT              shift and go to state 71
+    LTEQ            shift and go to state 66
+    GT              shift and go to state 62
+    GTEQ            shift and go to state 64
+    EQUAL           shift and go to state 68
+    NEQUAL          shift and go to state 67
+    NOT             shift and go to state 70
+    MINUSMINUS      shift and go to state 74
+    PLUSPLUS        shift and go to state 65
+
+
+state 79
+
+    (28) PrintStmt -> NAME DOT NAME DOT . NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+
+    NAME            shift and go to state 98
+
+
+state 80
+
+    (18) IdentList -> IdentList COMMA Identifier .
+
+    SEMICOLON       reduce using rule 18 (IdentList -> IdentList COMMA Identifier .)
+    COMMA           reduce using rule 18 (IdentList -> IdentList COMMA Identifier .)
+
+
+state 81
+
+    (30) IfStmt -> IF LEFTPARENT Expr RIGHTPARENT . Stmt
+    (31) IfStmt -> IF LEFTPARENT Expr RIGHTPARENT . Stmt ELSE Stmt
+    (20) Stmt -> . PrintStmt
+    (21) Stmt -> . Assign SEMICOLON
+    (22) Stmt -> . IfStmt
+    (23) Stmt -> . VarDeclList
+    (24) Stmt -> . ForStmt
+    (25) Stmt -> . BREAK SEMICOLON
+    (26) Stmt -> . CONTINUE SEMICOLON
+    (27) Stmt -> . Block
+    (28) PrintStmt -> . NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+    (29) Assign -> . NAME ASSIGNMENT Expr
+    (30) IfStmt -> . IF LEFTPARENT Expr RIGHTPARENT Stmt
+    (31) IfStmt -> . IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt
+    (14) VarDeclList -> . Declaration
+    (15) VarDeclList -> . VarDeclList Declaration
+    (32) ForStmt -> . FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt
+    (11) Block -> . LEFTBRACE StmtList RIGHTBRACE
+    (16) Declaration -> . Type IdentList SEMICOLON
+    (4) Type -> . INT
+    (5) Type -> . VOID
+    (6) Type -> . BOOLEAN
+    (7) Type -> . FLOAT
+    (8) Type -> . LONG
+    (9) Type -> . DOUBLE
+    (10) Type -> . CHAR
+
+    BREAK           shift and go to state 36
+    CONTINUE        shift and go to state 38
+    NAME            shift and go to state 25
+    IF              shift and go to state 31
+    FOR             shift and go to state 32
+    LEFTBRACE       shift and go to state 21
+    INT             shift and go to state 10
+    VOID            shift and go to state 12
+    BOOLEAN         shift and go to state 16
+    FLOAT           shift and go to state 13
+    LONG            shift and go to state 14
+    DOUBLE          shift and go to state 11
+    CHAR            shift and go to state 15
+
+    Stmt                           shift and go to state 99
+    IfStmt                         shift and go to state 28
+    PrintStmt                      shift and go to state 37
+    VarDeclList                    shift and go to state 39
+    Declaration                    shift and go to state 30
+    ForStmt                        shift and go to state 26
+    Type                           shift and go to state 27
+    Assign                         shift and go to state 34
+    Block                          shift and go to state 35
+
+state 82
+
+    (32) ForStmt -> FOR LEFTPARENT Assign SEMICOLON . Expr SEMICOLON Assign RIGHTPARENT Stmt
+    (33) Expr -> . NAME
+    (34) Expr -> . Expr PLUS Expr
+    (35) Expr -> . Expr MINUS Expr
+    (36) Expr -> . Expr MULTIPLY Expr
+    (37) Expr -> . Expr DIVIDE Expr
+    (38) Expr -> . Expr MODULO Expr
+    (39) Expr -> . Expr AND Expr
+    (40) Expr -> . Expr OR Expr
+    (41) Expr -> . Expr CONCAT Expr
+    (42) Expr -> . Expr LT Expr
+    (43) Expr -> . Expr LTEQ Expr
+    (44) Expr -> . Expr GT Expr
+    (45) Expr -> . Expr GTEQ Expr
+    (46) Expr -> . Expr EQUAL Expr
+    (47) Expr -> . Expr NEQUAL Expr
+    (48) Expr -> . Expr NOT
+    (49) Expr -> . Expr MINUSMINUS
+    (50) Expr -> . Expr PLUSPLUS
+    (51) Expr -> . LEFTPARENT Expr RIGHTPARENT
+    (52) Expr -> . NUMBER
+
+    NAME            shift and go to state 54
+    LEFTPARENT      shift and go to state 53
+    NUMBER          shift and go to state 52
+
+    Expr                           shift and go to state 100
+
+state 83
+
+    (39) Expr -> Expr AND Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 39 (Expr -> Expr AND Expr .)
+    RIGHTPARENT     reduce using rule 39 (Expr -> Expr AND Expr .)
+    AND             reduce using rule 39 (Expr -> Expr AND Expr .)
+    OR              reduce using rule 39 (Expr -> Expr AND Expr .)
+    CONCAT          reduce using rule 39 (Expr -> Expr AND Expr .)
+    MINUSMINUS      reduce using rule 39 (Expr -> Expr AND Expr .)
+    PLUSPLUS        reduce using rule 39 (Expr -> Expr AND Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    LT              shift and go to state 71
+    LTEQ            shift and go to state 66
+    GT              shift and go to state 62
+    GTEQ            shift and go to state 64
+    EQUAL           shift and go to state 68
+    NEQUAL          shift and go to state 67
+    NOT             shift and go to state 70
+
+  ! PLUS            [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! MINUS           [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! MULTIPLY        [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! DIVIDE          [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! MODULO          [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! LT              [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! LTEQ            [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! GT              [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! GTEQ            [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! EQUAL           [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! NEQUAL          [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! NOT             [ reduce using rule 39 (Expr -> Expr AND Expr .) ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 84
+
+    (44) Expr -> Expr GT Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 44 (Expr -> Expr GT Expr .)
+    RIGHTPARENT     reduce using rule 44 (Expr -> Expr GT Expr .)
+    AND             reduce using rule 44 (Expr -> Expr GT Expr .)
+    OR              reduce using rule 44 (Expr -> Expr GT Expr .)
+    CONCAT          reduce using rule 44 (Expr -> Expr GT Expr .)
+    LT              reduce using rule 44 (Expr -> Expr GT Expr .)
+    LTEQ            reduce using rule 44 (Expr -> Expr GT Expr .)
+    GT              reduce using rule 44 (Expr -> Expr GT Expr .)
+    GTEQ            reduce using rule 44 (Expr -> Expr GT Expr .)
+    EQUAL           reduce using rule 44 (Expr -> Expr GT Expr .)
+    NEQUAL          reduce using rule 44 (Expr -> Expr GT Expr .)
+    MINUSMINUS      reduce using rule 44 (Expr -> Expr GT Expr .)
+    PLUSPLUS        reduce using rule 44 (Expr -> Expr GT Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    NOT             shift and go to state 70
+
+  ! PLUS            [ reduce using rule 44 (Expr -> Expr GT Expr .) ]
+  ! MINUS           [ reduce using rule 44 (Expr -> Expr GT Expr .) ]
+  ! MULTIPLY        [ reduce using rule 44 (Expr -> Expr GT Expr .) ]
+  ! DIVIDE          [ reduce using rule 44 (Expr -> Expr GT Expr .) ]
+  ! MODULO          [ reduce using rule 44 (Expr -> Expr GT Expr .) ]
+  ! NOT             [ reduce using rule 44 (Expr -> Expr GT Expr .) ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! LT              [ shift and go to state 71 ]
+  ! LTEQ            [ shift and go to state 66 ]
+  ! GT              [ shift and go to state 62 ]
+  ! GTEQ            [ shift and go to state 64 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 85
+
+    (38) Expr -> Expr MODULO Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    RIGHTPARENT     reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    PLUS            reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    MINUS           reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    MULTIPLY        reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    DIVIDE          reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    MODULO          reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    AND             reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    OR              reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    CONCAT          reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    LT              reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    LTEQ            reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    GT              reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    GTEQ            reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    EQUAL           reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    NEQUAL          reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    MINUSMINUS      reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    PLUSPLUS        reduce using rule 38 (Expr -> Expr MODULO Expr .)
+    NOT             shift and go to state 70
+
+  ! NOT             [ reduce using rule 38 (Expr -> Expr MODULO Expr .) ]
+  ! PLUS            [ shift and go to state 72 ]
+  ! MINUS           [ shift and go to state 75 ]
+  ! MULTIPLY        [ shift and go to state 73 ]
+  ! DIVIDE          [ shift and go to state 77 ]
+  ! MODULO          [ shift and go to state 63 ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! LT              [ shift and go to state 71 ]
+  ! LTEQ            [ shift and go to state 66 ]
+  ! GT              [ shift and go to state 62 ]
+  ! GTEQ            [ shift and go to state 64 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 86
+
+    (45) Expr -> Expr GTEQ Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    RIGHTPARENT     reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    AND             reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    OR              reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    CONCAT          reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    LT              reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    LTEQ            reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    GT              reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    GTEQ            reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    EQUAL           reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    NEQUAL          reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    MINUSMINUS      reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    PLUSPLUS        reduce using rule 45 (Expr -> Expr GTEQ Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    NOT             shift and go to state 70
+
+  ! PLUS            [ reduce using rule 45 (Expr -> Expr GTEQ Expr .) ]
+  ! MINUS           [ reduce using rule 45 (Expr -> Expr GTEQ Expr .) ]
+  ! MULTIPLY        [ reduce using rule 45 (Expr -> Expr GTEQ Expr .) ]
+  ! DIVIDE          [ reduce using rule 45 (Expr -> Expr GTEQ Expr .) ]
+  ! MODULO          [ reduce using rule 45 (Expr -> Expr GTEQ Expr .) ]
+  ! NOT             [ reduce using rule 45 (Expr -> Expr GTEQ Expr .) ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! LT              [ shift and go to state 71 ]
+  ! LTEQ            [ shift and go to state 66 ]
+  ! GT              [ shift and go to state 62 ]
+  ! GTEQ            [ shift and go to state 64 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 87
+
+    (43) Expr -> Expr LTEQ Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    RIGHTPARENT     reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    AND             reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    OR              reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    CONCAT          reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    LT              reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    LTEQ            reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    GT              reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    GTEQ            reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    EQUAL           reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    NEQUAL          reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    MINUSMINUS      reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    PLUSPLUS        reduce using rule 43 (Expr -> Expr LTEQ Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    NOT             shift and go to state 70
+
+  ! PLUS            [ reduce using rule 43 (Expr -> Expr LTEQ Expr .) ]
+  ! MINUS           [ reduce using rule 43 (Expr -> Expr LTEQ Expr .) ]
+  ! MULTIPLY        [ reduce using rule 43 (Expr -> Expr LTEQ Expr .) ]
+  ! DIVIDE          [ reduce using rule 43 (Expr -> Expr LTEQ Expr .) ]
+  ! MODULO          [ reduce using rule 43 (Expr -> Expr LTEQ Expr .) ]
+  ! NOT             [ reduce using rule 43 (Expr -> Expr LTEQ Expr .) ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! LT              [ shift and go to state 71 ]
+  ! LTEQ            [ shift and go to state 66 ]
+  ! GT              [ shift and go to state 62 ]
+  ! GTEQ            [ shift and go to state 64 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 88
+
+    (47) Expr -> Expr NEQUAL Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 47 (Expr -> Expr NEQUAL Expr .)
+    RIGHTPARENT     reduce using rule 47 (Expr -> Expr NEQUAL Expr .)
+    AND             reduce using rule 47 (Expr -> Expr NEQUAL Expr .)
+    OR              reduce using rule 47 (Expr -> Expr NEQUAL Expr .)
+    CONCAT          reduce using rule 47 (Expr -> Expr NEQUAL Expr .)
+    EQUAL           reduce using rule 47 (Expr -> Expr NEQUAL Expr .)
+    NEQUAL          reduce using rule 47 (Expr -> Expr NEQUAL Expr .)
+    MINUSMINUS      reduce using rule 47 (Expr -> Expr NEQUAL Expr .)
+    PLUSPLUS        reduce using rule 47 (Expr -> Expr NEQUAL Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    LT              shift and go to state 71
+    LTEQ            shift and go to state 66
+    GT              shift and go to state 62
+    GTEQ            shift and go to state 64
+    NOT             shift and go to state 70
+
+  ! PLUS            [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! MINUS           [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! MULTIPLY        [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! DIVIDE          [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! MODULO          [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! LT              [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! LTEQ            [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! GT              [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! GTEQ            [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! NOT             [ reduce using rule 47 (Expr -> Expr NEQUAL Expr .) ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 89
+
+    (46) Expr -> Expr EQUAL Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 46 (Expr -> Expr EQUAL Expr .)
+    RIGHTPARENT     reduce using rule 46 (Expr -> Expr EQUAL Expr .)
+    AND             reduce using rule 46 (Expr -> Expr EQUAL Expr .)
+    OR              reduce using rule 46 (Expr -> Expr EQUAL Expr .)
+    CONCAT          reduce using rule 46 (Expr -> Expr EQUAL Expr .)
+    EQUAL           reduce using rule 46 (Expr -> Expr EQUAL Expr .)
+    NEQUAL          reduce using rule 46 (Expr -> Expr EQUAL Expr .)
+    MINUSMINUS      reduce using rule 46 (Expr -> Expr EQUAL Expr .)
+    PLUSPLUS        reduce using rule 46 (Expr -> Expr EQUAL Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    LT              shift and go to state 71
+    LTEQ            shift and go to state 66
+    GT              shift and go to state 62
+    GTEQ            shift and go to state 64
+    NOT             shift and go to state 70
+
+  ! PLUS            [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! MINUS           [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! MULTIPLY        [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! DIVIDE          [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! MODULO          [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! LT              [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! LTEQ            [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! GT              [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! GTEQ            [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! NOT             [ reduce using rule 46 (Expr -> Expr EQUAL Expr .) ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 90
+
+    (40) Expr -> Expr OR Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 40 (Expr -> Expr OR Expr .)
+    RIGHTPARENT     reduce using rule 40 (Expr -> Expr OR Expr .)
+    OR              reduce using rule 40 (Expr -> Expr OR Expr .)
+    CONCAT          reduce using rule 40 (Expr -> Expr OR Expr .)
+    MINUSMINUS      reduce using rule 40 (Expr -> Expr OR Expr .)
+    PLUSPLUS        reduce using rule 40 (Expr -> Expr OR Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    AND             shift and go to state 61
+    LT              shift and go to state 71
+    LTEQ            shift and go to state 66
+    GT              shift and go to state 62
+    GTEQ            shift and go to state 64
+    EQUAL           shift and go to state 68
+    NEQUAL          shift and go to state 67
+    NOT             shift and go to state 70
+
+  ! PLUS            [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! MINUS           [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! MULTIPLY        [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! DIVIDE          [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! MODULO          [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! AND             [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! LT              [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! LTEQ            [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! GT              [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! GTEQ            [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! EQUAL           [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! NEQUAL          [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! NOT             [ reduce using rule 40 (Expr -> Expr OR Expr .) ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 91
+
+    (42) Expr -> Expr LT Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 42 (Expr -> Expr LT Expr .)
+    RIGHTPARENT     reduce using rule 42 (Expr -> Expr LT Expr .)
+    AND             reduce using rule 42 (Expr -> Expr LT Expr .)
+    OR              reduce using rule 42 (Expr -> Expr LT Expr .)
+    CONCAT          reduce using rule 42 (Expr -> Expr LT Expr .)
+    LT              reduce using rule 42 (Expr -> Expr LT Expr .)
+    LTEQ            reduce using rule 42 (Expr -> Expr LT Expr .)
+    GT              reduce using rule 42 (Expr -> Expr LT Expr .)
+    GTEQ            reduce using rule 42 (Expr -> Expr LT Expr .)
+    EQUAL           reduce using rule 42 (Expr -> Expr LT Expr .)
+    NEQUAL          reduce using rule 42 (Expr -> Expr LT Expr .)
+    MINUSMINUS      reduce using rule 42 (Expr -> Expr LT Expr .)
+    PLUSPLUS        reduce using rule 42 (Expr -> Expr LT Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    NOT             shift and go to state 70
+
+  ! PLUS            [ reduce using rule 42 (Expr -> Expr LT Expr .) ]
+  ! MINUS           [ reduce using rule 42 (Expr -> Expr LT Expr .) ]
+  ! MULTIPLY        [ reduce using rule 42 (Expr -> Expr LT Expr .) ]
+  ! DIVIDE          [ reduce using rule 42 (Expr -> Expr LT Expr .) ]
+  ! MODULO          [ reduce using rule 42 (Expr -> Expr LT Expr .) ]
+  ! NOT             [ reduce using rule 42 (Expr -> Expr LT Expr .) ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! LT              [ shift and go to state 71 ]
+  ! LTEQ            [ shift and go to state 66 ]
+  ! GT              [ shift and go to state 62 ]
+  ! GTEQ            [ shift and go to state 64 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 92
+
+    (34) Expr -> Expr PLUS Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    RIGHTPARENT     reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    PLUS            reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    MINUS           reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    AND             reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    OR              reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    CONCAT          reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    LT              reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    LTEQ            reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    GT              reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    GTEQ            reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    EQUAL           reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    NEQUAL          reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    MINUSMINUS      reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    PLUSPLUS        reduce using rule 34 (Expr -> Expr PLUS Expr .)
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    NOT             shift and go to state 70
+
+  ! MULTIPLY        [ reduce using rule 34 (Expr -> Expr PLUS Expr .) ]
+  ! DIVIDE          [ reduce using rule 34 (Expr -> Expr PLUS Expr .) ]
+  ! MODULO          [ reduce using rule 34 (Expr -> Expr PLUS Expr .) ]
+  ! NOT             [ reduce using rule 34 (Expr -> Expr PLUS Expr .) ]
+  ! PLUS            [ shift and go to state 72 ]
+  ! MINUS           [ shift and go to state 75 ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! LT              [ shift and go to state 71 ]
+  ! LTEQ            [ shift and go to state 66 ]
+  ! GT              [ shift and go to state 62 ]
+  ! GTEQ            [ shift and go to state 64 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 93
+
+    (36) Expr -> Expr MULTIPLY Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    RIGHTPARENT     reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    PLUS            reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    MINUS           reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    MULTIPLY        reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    DIVIDE          reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    MODULO          reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    AND             reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    OR              reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    CONCAT          reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    LT              reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    LTEQ            reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    GT              reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    GTEQ            reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    EQUAL           reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    NEQUAL          reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    MINUSMINUS      reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    PLUSPLUS        reduce using rule 36 (Expr -> Expr MULTIPLY Expr .)
+    NOT             shift and go to state 70
+
+  ! NOT             [ reduce using rule 36 (Expr -> Expr MULTIPLY Expr .) ]
+  ! PLUS            [ shift and go to state 72 ]
+  ! MINUS           [ shift and go to state 75 ]
+  ! MULTIPLY        [ shift and go to state 73 ]
+  ! DIVIDE          [ shift and go to state 77 ]
+  ! MODULO          [ shift and go to state 63 ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! LT              [ shift and go to state 71 ]
+  ! LTEQ            [ shift and go to state 66 ]
+  ! GT              [ shift and go to state 62 ]
+  ! GTEQ            [ shift and go to state 64 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 94
+
+    (35) Expr -> Expr MINUS Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    RIGHTPARENT     reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    PLUS            reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    MINUS           reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    AND             reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    OR              reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    CONCAT          reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    LT              reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    LTEQ            reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    GT              reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    GTEQ            reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    EQUAL           reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    NEQUAL          reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    MINUSMINUS      reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    PLUSPLUS        reduce using rule 35 (Expr -> Expr MINUS Expr .)
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    NOT             shift and go to state 70
+
+  ! MULTIPLY        [ reduce using rule 35 (Expr -> Expr MINUS Expr .) ]
+  ! DIVIDE          [ reduce using rule 35 (Expr -> Expr MINUS Expr .) ]
+  ! MODULO          [ reduce using rule 35 (Expr -> Expr MINUS Expr .) ]
+  ! NOT             [ reduce using rule 35 (Expr -> Expr MINUS Expr .) ]
+  ! PLUS            [ shift and go to state 72 ]
+  ! MINUS           [ shift and go to state 75 ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! LT              [ shift and go to state 71 ]
+  ! LTEQ            [ shift and go to state 66 ]
+  ! GT              [ shift and go to state 62 ]
+  ! GTEQ            [ shift and go to state 64 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 95
+
+    (41) Expr -> Expr CONCAT Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MULTIPLY resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MODULO resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for CONCAT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for LTEQ resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for GTEQ resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NEQUAL resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+  ! shift/reduce conflict for MINUSMINUS resolved as shift
+  ! shift/reduce conflict for PLUSPLUS resolved as shift
+    SEMICOLON       reduce using rule 41 (Expr -> Expr CONCAT Expr .)
+    RIGHTPARENT     reduce using rule 41 (Expr -> Expr CONCAT Expr .)
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    AND             shift and go to state 61
+    OR              shift and go to state 69
+    CONCAT          shift and go to state 76
+    LT              shift and go to state 71
+    LTEQ            shift and go to state 66
+    GT              shift and go to state 62
+    GTEQ            shift and go to state 64
+    EQUAL           shift and go to state 68
+    NEQUAL          shift and go to state 67
+    NOT             shift and go to state 70
+    MINUSMINUS      shift and go to state 74
+    PLUSPLUS        shift and go to state 65
+
+  ! PLUS            [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! MINUS           [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! MULTIPLY        [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! DIVIDE          [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! MODULO          [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! AND             [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! OR              [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! CONCAT          [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! LT              [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! LTEQ            [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! GT              [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! GTEQ            [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! EQUAL           [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! NEQUAL          [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! NOT             [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! MINUSMINUS      [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+  ! PLUSPLUS        [ reduce using rule 41 (Expr -> Expr CONCAT Expr .) ]
+
+
+state 96
+
+    (37) Expr -> Expr DIVIDE Expr .
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    RIGHTPARENT     reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    PLUS            reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    MINUS           reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    MULTIPLY        reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    DIVIDE          reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    MODULO          reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    AND             reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    OR              reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    CONCAT          reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    LT              reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    LTEQ            reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    GT              reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    GTEQ            reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    EQUAL           reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    NEQUAL          reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    MINUSMINUS      reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    PLUSPLUS        reduce using rule 37 (Expr -> Expr DIVIDE Expr .)
+    NOT             shift and go to state 70
+
+  ! NOT             [ reduce using rule 37 (Expr -> Expr DIVIDE Expr .) ]
+  ! PLUS            [ shift and go to state 72 ]
+  ! MINUS           [ shift and go to state 75 ]
+  ! MULTIPLY        [ shift and go to state 73 ]
+  ! DIVIDE          [ shift and go to state 77 ]
+  ! MODULO          [ shift and go to state 63 ]
+  ! AND             [ shift and go to state 61 ]
+  ! OR              [ shift and go to state 69 ]
+  ! CONCAT          [ shift and go to state 76 ]
+  ! LT              [ shift and go to state 71 ]
+  ! LTEQ            [ shift and go to state 66 ]
+  ! GT              [ shift and go to state 62 ]
+  ! GTEQ            [ shift and go to state 64 ]
+  ! EQUAL           [ shift and go to state 68 ]
+  ! NEQUAL          [ shift and go to state 67 ]
+  ! MINUSMINUS      [ shift and go to state 74 ]
+  ! PLUSPLUS        [ shift and go to state 65 ]
+
+
+state 97
+
+    (51) Expr -> LEFTPARENT Expr RIGHTPARENT .
+
+    SEMICOLON       reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    RIGHTPARENT     reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    PLUS            reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    MINUS           reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    MULTIPLY        reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    DIVIDE          reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    MODULO          reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    AND             reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    OR              reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    CONCAT          reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    LT              reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    LTEQ            reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    GT              reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    GTEQ            reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    EQUAL           reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    NEQUAL          reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    NOT             reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    MINUSMINUS      reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+    PLUSPLUS        reduce using rule 51 (Expr -> LEFTPARENT Expr RIGHTPARENT .)
+
+
+state 98
+
+    (28) PrintStmt -> NAME DOT NAME DOT NAME . LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+
+    LEFTPARENT      shift and go to state 101
+
+
+state 99
+
+    (30) IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .
+    (31) IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt . ELSE Stmt
+
+  ! shift/reduce conflict for ELSE resolved as shift
+    RIGHTBRACE      reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    BREAK           reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    CONTINUE        reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    NAME            reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    IF              reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    FOR             reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    LEFTBRACE       reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    INT             reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    VOID            reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    BOOLEAN         reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    FLOAT           reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    LONG            reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    DOUBLE          reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    CHAR            reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .)
+    ELSE            shift and go to state 102
+
+  ! ELSE            [ reduce using rule 30 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt .) ]
+
+
+state 100
+
+    (32) ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr . SEMICOLON Assign RIGHTPARENT Stmt
+    (34) Expr -> Expr . PLUS Expr
+    (35) Expr -> Expr . MINUS Expr
+    (36) Expr -> Expr . MULTIPLY Expr
+    (37) Expr -> Expr . DIVIDE Expr
+    (38) Expr -> Expr . MODULO Expr
+    (39) Expr -> Expr . AND Expr
+    (40) Expr -> Expr . OR Expr
+    (41) Expr -> Expr . CONCAT Expr
+    (42) Expr -> Expr . LT Expr
+    (43) Expr -> Expr . LTEQ Expr
+    (44) Expr -> Expr . GT Expr
+    (45) Expr -> Expr . GTEQ Expr
+    (46) Expr -> Expr . EQUAL Expr
+    (47) Expr -> Expr . NEQUAL Expr
+    (48) Expr -> Expr . NOT
+    (49) Expr -> Expr . MINUSMINUS
+    (50) Expr -> Expr . PLUSPLUS
+
+    SEMICOLON       shift and go to state 103
+    PLUS            shift and go to state 72
+    MINUS           shift and go to state 75
+    MULTIPLY        shift and go to state 73
+    DIVIDE          shift and go to state 77
+    MODULO          shift and go to state 63
+    AND             shift and go to state 61
+    OR              shift and go to state 69
+    CONCAT          shift and go to state 76
+    LT              shift and go to state 71
+    LTEQ            shift and go to state 66
+    GT              shift and go to state 62
+    GTEQ            shift and go to state 64
+    EQUAL           shift and go to state 68
+    NEQUAL          shift and go to state 67
+    NOT             shift and go to state 70
+    MINUSMINUS      shift and go to state 74
+    PLUSPLUS        shift and go to state 65
+
+
+state 101
+
+    (28) PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT . STRING_LITERAL RIGHTPARENT SEMICOLON
+
+    STRING_LITERAL  shift and go to state 104
+
+
+state 102
+
+    (31) IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE . Stmt
+    (20) Stmt -> . PrintStmt
+    (21) Stmt -> . Assign SEMICOLON
+    (22) Stmt -> . IfStmt
+    (23) Stmt -> . VarDeclList
+    (24) Stmt -> . ForStmt
+    (25) Stmt -> . BREAK SEMICOLON
+    (26) Stmt -> . CONTINUE SEMICOLON
+    (27) Stmt -> . Block
+    (28) PrintStmt -> . NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+    (29) Assign -> . NAME ASSIGNMENT Expr
+    (30) IfStmt -> . IF LEFTPARENT Expr RIGHTPARENT Stmt
+    (31) IfStmt -> . IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt
+    (14) VarDeclList -> . Declaration
+    (15) VarDeclList -> . VarDeclList Declaration
+    (32) ForStmt -> . FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt
+    (11) Block -> . LEFTBRACE StmtList RIGHTBRACE
+    (16) Declaration -> . Type IdentList SEMICOLON
+    (4) Type -> . INT
+    (5) Type -> . VOID
+    (6) Type -> . BOOLEAN
+    (7) Type -> . FLOAT
+    (8) Type -> . LONG
+    (9) Type -> . DOUBLE
+    (10) Type -> . CHAR
+
+    BREAK           shift and go to state 36
+    CONTINUE        shift and go to state 38
+    NAME            shift and go to state 25
+    IF              shift and go to state 31
+    FOR             shift and go to state 32
+    LEFTBRACE       shift and go to state 21
+    INT             shift and go to state 10
+    VOID            shift and go to state 12
+    BOOLEAN         shift and go to state 16
+    FLOAT           shift and go to state 13
+    LONG            shift and go to state 14
+    DOUBLE          shift and go to state 11
+    CHAR            shift and go to state 15
+
+    Stmt                           shift and go to state 105
+    IfStmt                         shift and go to state 28
+    PrintStmt                      shift and go to state 37
+    VarDeclList                    shift and go to state 39
+    Declaration                    shift and go to state 30
+    ForStmt                        shift and go to state 26
+    Type                           shift and go to state 27
+    Assign                         shift and go to state 34
+    Block                          shift and go to state 35
+
+state 103
+
+    (32) ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON . Assign RIGHTPARENT Stmt
+    (29) Assign -> . NAME ASSIGNMENT Expr
+
+    NAME            shift and go to state 60
+
+    Assign                         shift and go to state 106
+
+state 104
+
+    (28) PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL . RIGHTPARENT SEMICOLON
+
+    RIGHTPARENT     shift and go to state 107
+
+
+state 105
+
+    (31) IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .
+
+    RIGHTBRACE      reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    BREAK           reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    CONTINUE        reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    NAME            reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    IF              reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    FOR             reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    LEFTBRACE       reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    INT             reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    VOID            reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    BOOLEAN         reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    FLOAT           reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    LONG            reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    DOUBLE          reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    CHAR            reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+    ELSE            reduce using rule 31 (IfStmt -> IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt .)
+
+
+state 106
+
+    (32) ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign . RIGHTPARENT Stmt
+
+    RIGHTPARENT     shift and go to state 108
+
+
+state 107
+
+    (28) PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT . SEMICOLON
+
+    SEMICOLON       shift and go to state 109
+
+
+state 108
+
+    (32) ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT . Stmt
+    (20) Stmt -> . PrintStmt
+    (21) Stmt -> . Assign SEMICOLON
+    (22) Stmt -> . IfStmt
+    (23) Stmt -> . VarDeclList
+    (24) Stmt -> . ForStmt
+    (25) Stmt -> . BREAK SEMICOLON
+    (26) Stmt -> . CONTINUE SEMICOLON
+    (27) Stmt -> . Block
+    (28) PrintStmt -> . NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON
+    (29) Assign -> . NAME ASSIGNMENT Expr
+    (30) IfStmt -> . IF LEFTPARENT Expr RIGHTPARENT Stmt
+    (31) IfStmt -> . IF LEFTPARENT Expr RIGHTPARENT Stmt ELSE Stmt
+    (14) VarDeclList -> . Declaration
+    (15) VarDeclList -> . VarDeclList Declaration
+    (32) ForStmt -> . FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt
+    (11) Block -> . LEFTBRACE StmtList RIGHTBRACE
+    (16) Declaration -> . Type IdentList SEMICOLON
+    (4) Type -> . INT
+    (5) Type -> . VOID
+    (6) Type -> . BOOLEAN
+    (7) Type -> . FLOAT
+    (8) Type -> . LONG
+    (9) Type -> . DOUBLE
+    (10) Type -> . CHAR
+
+    BREAK           shift and go to state 36
+    CONTINUE        shift and go to state 38
+    NAME            shift and go to state 25
+    IF              shift and go to state 31
+    FOR             shift and go to state 32
+    LEFTBRACE       shift and go to state 21
+    INT             shift and go to state 10
+    VOID            shift and go to state 12
+    BOOLEAN         shift and go to state 16
+    FLOAT           shift and go to state 13
+    LONG            shift and go to state 14
+    DOUBLE          shift and go to state 11
+    CHAR            shift and go to state 15
+
+    Stmt                           shift and go to state 110
+    IfStmt                         shift and go to state 28
+    PrintStmt                      shift and go to state 37
+    VarDeclList                    shift and go to state 39
+    Declaration                    shift and go to state 30
+    ForStmt                        shift and go to state 26
+    Type                           shift and go to state 27
+    Assign                         shift and go to state 34
+    Block                          shift and go to state 35
+
+state 109
+
+    (28) PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .
+
+    RIGHTBRACE      reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    BREAK           reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    CONTINUE        reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    NAME            reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    IF              reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    FOR             reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    LEFTBRACE       reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    INT             reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    VOID            reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    BOOLEAN         reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    FLOAT           reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    LONG            reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    DOUBLE          reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    CHAR            reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+    ELSE            reduce using rule 28 (PrintStmt -> NAME DOT NAME DOT NAME LEFTPARENT STRING_LITERAL RIGHTPARENT SEMICOLON .)
+
+
+state 110
+
+    (32) ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .
+
+    RIGHTBRACE      reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    BREAK           reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    CONTINUE        reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    NAME            reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    IF              reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    FOR             reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    LEFTBRACE       reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    INT             reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    VOID            reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    BOOLEAN         reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    FLOAT           reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    LONG            reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    DOUBLE          reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    CHAR            reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+    ELSE            reduce using rule 32 (ForStmt -> FOR LEFTPARENT Assign SEMICOLON Expr SEMICOLON Assign RIGHTPARENT Stmt .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for INT in state 39 resolved as shift
+WARNING: shift/reduce conflict for VOID in state 39 resolved as shift
+WARNING: shift/reduce conflict for BOOLEAN in state 39 resolved as shift
+WARNING: shift/reduce conflict for FLOAT in state 39 resolved as shift
+WARNING: shift/reduce conflict for LONG in state 39 resolved as shift
+WARNING: shift/reduce conflict for DOUBLE in state 39 resolved as shift
+WARNING: shift/reduce conflict for CHAR in state 39 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 95 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 95 resolved as shift
+WARNING: shift/reduce conflict for MULTIPLY in state 95 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 95 resolved as shift
+WARNING: shift/reduce conflict for MODULO in state 95 resolved as shift
+WARNING: shift/reduce conflict for AND in state 95 resolved as shift
+WARNING: shift/reduce conflict for OR in state 95 resolved as shift
+WARNING: shift/reduce conflict for CONCAT in state 95 resolved as shift
+WARNING: shift/reduce conflict for LT in state 95 resolved as shift
+WARNING: shift/reduce conflict for LTEQ in state 95 resolved as shift
+WARNING: shift/reduce conflict for GT in state 95 resolved as shift
+WARNING: shift/reduce conflict for GTEQ in state 95 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 95 resolved as shift
+WARNING: shift/reduce conflict for NEQUAL in state 95 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 95 resolved as shift
+WARNING: shift/reduce conflict for MINUSMINUS in state 95 resolved as shift
+WARNING: shift/reduce conflict for PLUSPLUS in state 95 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 99 resolved as shift

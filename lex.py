@@ -1,5 +1,5 @@
 import ply.lex as lex
-from tabulate import tabulate
+#from tabulate import tabulate
 keywords = ('this', 'class', 'void', 'super', 'extends', 'implements', 'enum', 'interface',
                 'byte', 'short', 'int', 'long', 'char', 'float', 'double', 'boolean', 'null',
                 'true', 'false',
@@ -12,6 +12,7 @@ keywords = ('this', 'class', 'void', 'super', 'extends', 'implements', 'enum', '
                 'package', 'import','length')
 tokens = [
         'NAME',
+	'DECIMAL',
         'NUMBER',
         'CHAR_LITERAL',
         'STRING_LITERAL',
@@ -29,7 +30,7 @@ tokens = [
 tokens += [kwd.upper() for kwd in keywords]
 
 literals = '()+-*/=?:,.^|&~!=[]{};<>@%'
-
+t_DECIMAL = r'[0-9]+'
 t_NUMBER = r'\.?[0-9][0-9eE_lLdDa-fA-F.xXpP]*'
 t_CHAR_LITERAL = r'\'([^\\\n]|(\\.))*?\''
 t_STRING_LITERAL = r'\"([^\\\n]|(\\.))*?\"'
@@ -103,7 +104,7 @@ my_inp = open('Simple.java','r').read()
 data_types=['byte', 'short', 'int', 'long', 'char', 'float', 'double', 'boolean','void','class']
 lex.lex()
 lex.input(my_inp)
-
+'''
 #SYMBOL TABLE 
 sym_table = dict()
 s=dict()
@@ -167,4 +168,4 @@ while 1:
 sym_table['outer']=s
 print("\n\n[Table for scope: outer]\n\n")
 print(tabulate([[sym, s[sym]] for sym in s], headers = ['SYMBOL', 'VALUE(lineno,datatype,function/var)'], tablefmt='orgtbl'))
-
+'''

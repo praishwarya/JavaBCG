@@ -1,24 +1,22 @@
 class Simple
 {	//This is a sample program
-	public static void main(String[] args){
-		int i=0;
-		int count=10,b,c;
-		for(b=0;b<count;b++){
-			b=b*10;
-			if(b>0){
-				b=b+10;
-			}
+	public static void main(){
+		int i,j;
+		i = 9;
+		if(i<987)
+		{
+			System.out.println("hello");
+			j = 0;
 		}
-		if(b==count){
-			b=b*10;
+		else
+		{
+			j = 1;
 		}
-		else{
-			b=b*10;
+		for(i=10;i< 20;i=i+1)
+		{
+			i = i +8;
 		}
-                count = count *7;
 	}
-        int g;
+       
 }  
-class HI{
-	int h;
-}
+
