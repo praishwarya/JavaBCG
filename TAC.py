@@ -31,6 +31,8 @@ class ThreeAddressCode:
                 print(str(count)+", "+i[0]+", "+x[0]+", "+i[1]+", "+x[1]+", "+i[3])
             elif(i[0]=='goto' or i[0]=='call'):
                 print(str(count)+", "+i[0]+", "+i[1])
+            elif(i[0]=='iffalse'):
+                print(str(count)+", iffalse " + i[1] + " goto " + i[2])
             elif(i[0]=='label'):
                 print(str(count)+", label, "+i[1])
             elif(i[0]=='input'):
@@ -49,7 +51,7 @@ class ThreeAddressCode:
             elif(i[0]=='declare'):
                 print(str(count)+", declare" +", "+i[1]+", "+i[2])
             elif(i[0]=='print'):
-                print(str(count)+", print, \"%d\", "+i[1])
+                print(str(count)+", print, " + i[1])
             elif(i[0]=='printf'):
                 l = len(i[1])
                 f = i[1][0]

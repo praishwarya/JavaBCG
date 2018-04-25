@@ -19,13 +19,16 @@ class Program(Node):
     def __str__(self):
         outputstr = "\n[Program] :\n"
         if self.ClassDecl is not None:
-            outputstr += "ClassDecl : " + str(self.ClassDecl)
+        #for c in self.ClassDecls:
+            #print(c)
+            outputstr += "ClassDecls : " + str(self.ClassDecl)
         return outputstr
 
     def printast(self):
         outputstr = ""
         outputstr += "[Program]"
         if self.ClassDecl is not None:
+        #for c in self.ClassDecls:
             outputstr += self.ClassDecl.printast()
         return outputstr
 
@@ -34,7 +37,7 @@ class ClassDecl(Node):
 		self.id = id
 		self.MethDecl = methdecl
 	def __str__(self):
-		outputstr = "\n[Class]:\n"
+		outputstr = "\n\n\n[Class]:\n"
 		if self.id is not None:
             		outputstr += "id : " + str(self.id)
 		if self.MethDecl is not None:
@@ -347,3 +350,26 @@ class Expr(Node):
 
     def set_return_type(self, return_type):
         setattr(self, '_return_type', return_type)
+
+class ClassDecls(Node):
+    def __init__(self):
+        self.classes = []
+
+    def add_class(self, clas):
+        self.classes.append(clas)
+
+    def __str__(self):
+        outputstr = "\n[ClassList] : \n"
+        if self.classes is not None:
+            outputstr += "classes : "
+            outputstr += "["
+            for element in self.classes:
+                outputstr += str(element) + " "
+            outputstr += "]"
+        return outputstr
+
+    def printast(self):
+        l = []
+        for e in self.classes:
+            l.append(e.printast())
+        return "\n".join(l)
